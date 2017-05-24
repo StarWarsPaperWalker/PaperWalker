@@ -12,36 +12,44 @@
             <div id="paper-content">
                 <p class="center">
                     <?php
-                        $result = '';
+                        $fileLocation='../papers/61853/referat.html';
+                        
+                        if (!file_exists($fileLocation)) {
+                            $fileLocation='../papers/default/referat.html';
+                            echo "<audio style='display: none' controls autoplay loop='loop'>
+                            <source src='../audio/imperial_march.ogg' type='audio/ogg'>
+                            <source src='../audio/imperial_march.mp3' type='audio/mpeg'>
+                            </audio>";
+                        }
+                        else {
+                            echo "<audio style='display: none' controls autoplay loop='loop'>
+                            <source src='../audio/theme_song.ogg' type='audio/ogg'>
+                            <source src='../audio/theme_song.mp3' type='audio/mpeg'>
+                            </audio>";
+                        }
+                    
                         $dom = new DOMDocument();
-                        $fileLocation='../papers/61858/referat.html';
-
+                    
                         libxml_use_internal_errors(true);
                         $dom->loadHTML(file_get_contents($fileLocation));
                         libxml_clear_errors();
-
+                        
+                        $paper_title = '';
                         $title = $dom->getElementsByTagName('title');
                         if ($title->length > 0) {
-                            $result = $title->item(0)->textContent;
+                            $paper_title = $title->item(0)->textContent;
                         }
-                        $result = mb_strtoupper($result, "utf-8");
-                        echo $result;
-                    ?>
-                </p>
-                <?php
-                    $dom = new DOMDocument;
-                    $result = new DOMDocument;
-                    $fileLocation='../papers/61858/referat.html';
-                
-                    libxml_use_internal_errors(true);
-                    $dom->loadHTML(file_get_contents($fileLocation));
-                    libxml_clear_errors();
-                
-                    $body = $dom->getElementsByTagName('body')->item(0);
-                    foreach ($body->childNodes as $child) {
-                        $result->appendChild($result->importNode($child, true));
-                    }
-                    echo $result->saveHTML();
+                        $paper_title = mb_strtoupper($paper_title, "utf-8");
+                        echo $paper_title;
+                    
+                        echo '</p>';
+                            
+                        $paper_content = new DOMDocument;
+                        $body = $dom->getElementsByTagName('body')->item(0);
+                        foreach ($body->childNodes as $child) {
+                            $paper_content->appendChild($paper_content->importNode($child, true));
+                        }
+                        echo $paper_content->saveHTML();
                 ?>
             </div>
         </div>

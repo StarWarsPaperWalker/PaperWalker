@@ -182,7 +182,7 @@ p#start {
 	-moz-animation: scroll 750s linear 3s infinite;
 	-ms-animation: scroll 750s linear 3s infinite;
 	-o-animation: scroll 750s linear 3s infinite;
-	animation: scroll 10s linear 3s infinite;
+	animation: scroll 750s linear 3s infinite;
 }
 
 @-webkit-keyframes scroll {
