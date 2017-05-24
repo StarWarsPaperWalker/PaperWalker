@@ -1,0 +1,51 @@
+body {
+    background: url('../img/sky.gif');
+    height: 100%;
+    overflow: hidden;
+}
+
+.field {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -5%;
+    margin-left: -15%;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -o-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-perspective-origin: 50% 40%;
+    -moz-perspective-origin: 50% 40%;
+    -o-perspective-origin: 50% 40%;
+    perspective-origin: 50% 40%;
+}
+
+input {
+    display: block;
+    width: 150%;
+    border-radius: 10px;
+    border-width: 1px;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: inset 0 0 4px 3px #ddd;
+    padding: 10px;
+    color: whitesmoke;
+    font-size: 1.5em;
+    text-align: center;
+    color: whitesmoke;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    margin-top: 10%;
+    width: auto;
+    margin-left: auto;
+}
+
+#error {
+    margin-top: 5%;
+    width: 150%;
+    color: white;
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: bold;
+}
