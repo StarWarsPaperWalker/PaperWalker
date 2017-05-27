@@ -37,8 +37,8 @@
         }
         else {
             $_SESSION['error'] = "Невалидно потребителско име и/или парола!";
-        }
-        header("Location: ../index.php");
+            header("Location: ../index.php");
+        }   
     }
     else {
         die("Моля въведете потребителско име и/или парола!");

@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])) {
+        header("Location: ../index.php");
+        die();
+    }
+?>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -6,8 +13,8 @@
         <link rel=stylesheet type="text/css" href="../css/style.css">
     </head>
     <body>
-        <a href="paper.php"><div class="back">Назад</div></a>
-        <div class="logout">Изход</div>
+        <a href="paper.php" class="back">Назад</a>
+        <a href="logout.php" class="logout">Изход</a>
         <p id="start">A long time ago in a Web paper very, very far away&hellip;</p>
         <div class="h1">Star Wars<sub>реферат</sub></div>
         <div class="wrapper" id="paper">
