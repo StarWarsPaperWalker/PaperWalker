@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])) {
+        header("Location: ../index.php");
+        die();
+    }
+?>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -6,6 +13,8 @@
         <link rel=stylesheet type="text/css" href="../css/style.css">
     </head>
     <body>
+        <a href="paper.php" class="back">Назад</a>
+        <a href="logout.php" class="logout">Изход</a>
         <p id="start">A long time ago in a Web paper very, very far away&hellip;</p>
         <div class="h1">Star Wars<sub>реферат</sub></div>
         <div class="wrapper" id="paper">
@@ -14,7 +23,6 @@
                     <?php
 						$input=$_POST["referat"];
 						$uniqueName=explode("/", $input);
-						//echo $uniqueName[6];
 						
 						$servername = "localhost";
 						$db_username = "root";
@@ -28,13 +36,11 @@
 							exit($e->getMessage());
 						}
 						
-						$result = $conn->prepare("SELECT relativepath FROM Projects WHERE unique_name = :uniqueName");
+						$result = $conn->prepare("SELECT relative_path FROM Projects WHERE unique_name = :uniqueName");
 						$result->bindParam(':uniqueName', $uniqueName[6]);
 						$result->execute();
 						
-						//print_r($result->fetchAll()[0]["relativepath"]);
-						
-                        $fileLocation="../papers/".$result->fetchAll()[0]["relativepath"];
+                        $fileLocation="../papers/".$result->fetchAll()[0]["relative_path"];
                         
                         if (!file_exists($fileLocation)) {
                             $fileLocation='../papers/default/referat.html';
