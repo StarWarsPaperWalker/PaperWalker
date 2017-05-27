@@ -14,6 +14,28 @@
             <div id="paper-content">
                 <p class="center">
                     <?php
+						$input=$_POST["referat"];
+						$uniqueName=explode("/", $input);
+						echo $uniqueName[6];
+						
+						$servername = "localhost";
+						$db_username = "root";
+						$db_password = "";
+						$dbname = "star_wars";
+						
+						try {
+							$conn = new PDO("mysql:host=$servername;dbname=$dbname", $db_username, $db_password);
+							$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						} catch (PDOException $e){
+							exit($e->getMessage());
+						}
+						
+						$result = $conn->prepare("SELECT relativepath FROM Projects WHERE unique_name = :uniqueName");
+						$result->bindParam(':uniqueName', $uniqueName[6]);
+						$result->execute();
+						
+						print_r($result->fetchAll());
+						
                         $fileLocation='../papers/61853/referat.html';
                         
                         if (!file_exists($fileLocation)) {

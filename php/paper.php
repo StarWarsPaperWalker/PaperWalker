@@ -8,7 +8,7 @@
     <body>
         <div class="logout">Изход</div>
         <div class="field">
-            <form action="">
+            <form method="POST" action="view.php">
                 <input type="text" name="referat" placeholder="Линк към реферата..."/>
             </form>
         </div>
