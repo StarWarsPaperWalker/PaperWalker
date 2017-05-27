@@ -91,6 +91,7 @@
                 ?>
             </div>
         </div>
+        <script src="../js/counter.js"></script>
         <script src="../js/wrapper.js"></script>
     </body>
 </html>

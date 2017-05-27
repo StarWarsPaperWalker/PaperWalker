@@ -1,5 +1,5 @@
-var tags = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "a", "span", "ul", "li", "code", "section", "article"]
-var removables = ["img", "figure", "pre", "style", "script"]
+var tags = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "a", "span", "ul", "ol", "li", "code", "section", "article"]
+var removables = ["img", "figure", "pre"]
 
 for(i = 0; i < tags.length; i++) {
     var nodes = document.getElementsByTagName(tags[i]);

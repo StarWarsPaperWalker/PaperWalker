@@ -24,7 +24,7 @@
         
         $username = check_input($_POST["username"]); 
         $password = check_input($_POST["password"]); 
-        $hashed_password = md5(password);
+        $hashed_password = md5($password);
         
         $result = $conn->prepare("SELECT username, password FROM user WHERE username = :username AND password = :password");
         $result->bindParam(':username', $username);
