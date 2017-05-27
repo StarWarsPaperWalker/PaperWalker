@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<?php if(empty($_SESSION['error'])) { session_start(); } ?>
+<?php
+    if(empty($_SESSION['error'])) { 
+        session_start(); 
+    }
+    if(isset($_SESSION['username'])) {
+        header("Location: php/paper.php");
+    }
+?>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -14,9 +21,15 @@
                 <input type="submit" value="Продължи"/>
             </form>
             <div id="error">
-                <?php if(!empty($_SESSION['error'])) { echo $_SESSION['error']; } ?>
+                <?php 
+                    if(!empty($_SESSION['error'])) { 
+                        echo $_SESSION['error']; 
+                    } 
+                ?>
             </div>
-            <?php unset($_SESSION['error']); ?>
+            <?php 
+                unset($_SESSION['error']);
+            ?>
         </div>
     </body>
 </html>

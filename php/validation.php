@@ -36,9 +36,9 @@
             exit;
         }
         else {
-            $_SESSION['error'] = "Невалидно потребителско име и/или парола!";
-        }
-        header("Location: ../index.php");
+            $_SESSION['error'] = "Невалидно име и/или парола!";
+            header("Location: ../index.php");
+        }   
     }
     else {
         die("Моля въведете потребителско име и/или парола!");
