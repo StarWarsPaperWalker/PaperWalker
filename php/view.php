@@ -6,8 +6,6 @@
         <link rel=stylesheet type="text/css" href="../css/style.css">
     </head>
     <body>
-        <a href="paper.php"><div class="back">Назад</div></a>
-        <div class="logout">Изход</div>
         <p id="start">A long time ago in a Web paper very, very far away&hellip;</p>
         <div class="h1">Star Wars<sub>реферат</sub></div>
         <div class="wrapper" id="paper">
@@ -16,7 +14,7 @@
                     <?php
 						$input=$_POST["referat"];
 						$uniqueName=explode("/", $input);
-						echo $uniqueName[6];
+						//echo $uniqueName[6];
 						
 						$servername = "localhost";
 						$db_username = "root";
@@ -34,9 +32,9 @@
 						$result->bindParam(':uniqueName', $uniqueName[6]);
 						$result->execute();
 						
-						print_r($result->fetchAll());
+						//print_r($result->fetchAll()[0]["relativepath"]);
 						
-                        $fileLocation='../papers/61853/referat.html';
+                        $fileLocation="../papers/".$result->fetchAll()[0]["relativepath"];
                         
                         if (!file_exists($fileLocation)) {
                             $fileLocation='../papers/default/referat.html';
