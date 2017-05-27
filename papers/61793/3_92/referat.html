@@ -1,0 +1,971 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ECMAScript 6</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+  </head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3"><ul class="nav nav-list">
+    <li class="sidebar-header-1"><a href="#ecmascript-6">ECMAScript 6</a></li>
+    <li class="sidebar-header-2"><a href="#увод">Увод</a></li>
+    <li class="sidebar-header-2"><a href="#характеристики-на-ecmascript-6">Характеристики на ECMAScript 6</a></li>
+    <li class="sidebar-header-3"><a href="#arrow-функции">Arrow функции</a></li>
+    <li class="sidebar-header-3"><a href="#класове">Класове</a></li>
+    <li class="sidebar-header-4"><a href="#изчислими-свойства">Изчислими свойства</a></li>
+    <li class="sidebar-header-4"><a href="#наследяване">Наследяване</a></li>
+    <li class="sidebar-header-4"><a href="#статични-методи">Статични методи</a></li>
+    <li class="sidebar-header-3"><a href="#по-кратки-обектни-литерали">По-кратки обектни литерали</a></li>
+    <li class="sidebar-header-4"><a href="#променлива-в-обектен-литерал">Променлива в обектен литерал</a></li>
+    <li class="sidebar-header-4"><a href="#функция-в-обектен-литерал">Функция в обектен литерал</a></li>
+    <li class="sidebar-header-4"><a href="#динамични-(изчислими)-ключове-на-обектни-литерали">Динамични (изчислими) ключове на обектни литерали</a></li>
+    <li class="sidebar-header-3"><a href="#шаблонни-низове">Шаблонни низове</a></li>
+    <li class="sidebar-header-3"><a href="#деструктуриране-(разпадане)">Деструктуриране (разпадане)</a></li>
+    <li class="sidebar-header-4"><a href="#присвояване-чрез-разпадане">Присвояване чрез разпадане</a></li>
+    <li class="sidebar-header-4"><a href="#разпадане-на-аргументите-на-функция">Разпадане на аргументите на функция</a></li>
+    <li class="sidebar-header-4"><a href="#fail-soft-деструктуриране">Fail-soft деструктуриране</a></li>
+    <li class="sidebar-header-3"><a href="#аргументи-по-подразбиране">Аргументи по подразбиране</a></li>
+    <li class="sidebar-header-3"><a href="#променливи-локални-за-блок">Променливи локални за блок</a></li>
+    <li class="sidebar-header-4"><a href="#let">let</a></li>
+    <li class="sidebar-header-4"><a href="#const">const</a></li>
+    <li class="sidebar-header-3"><a href="#итератори-+-for..of-цикъл-за-обхождане-с-итератор">Итератори + for..of цикъл за обхождане с итератор</a></li>
+    <li class="sidebar-header-3"><a href="#генератори*">Генератори*</a></li>
+    <li class="sidebar-header-3"><a href="#модули">Модули</a></li>
+    <li class="sidebar-header-3"><a href="#структури-от-данни">Структури от данни</a></li>
+    <li class="sidebar-header-3"><a href="#проксита">Проксита</a></li>
+    <li class="sidebar-header-3"><a href="#binary-and-octal-literals">Binary and Octal Literals</a></li>
+    <li class="sidebar-header-3"><a href="#асинхронно-програмиране-с-promises-(обещания)">Асинхронно програмиране с Promises (обещания)</a></li>
+    <li class="sidebar-header-3"><a href="#източници-и-повече-информация">Източници и повече информация</a></li>
+</ul>
+      </div>
+      <div class="span9 main"><h1 id="ecmascript-6"><a class="header-link" href="#ecmascript-6"></a>ECMAScript 6</h1>
+<h2 id="увод"><a class="header-link" href="#увод"></a>Увод</h2>
+<p>ECMAScript 6 (ES6), още познат като ECMAScript 2015 към момента е предпоследната версия на ECMAScript стандарта. ES6 носи със себе си голям брой промени и подобрения на езика за програмиране. Нивото на поддръжка на стандарта в модерните JavaScript engines (браузъри и runtimes) може да се провери <a href="http://kangax.github.io/compat-table/es6/">тук</a>. Към момента последните версии на Google Chrome, Mozilla Firefox, Safari, iOS и Node.js имат почти пълна поддръжка на стандарта ES6 (с изключение на оптимизацията за опашкова рекурсия при някои).</p>
+<p>Пълната спецификация на ECMAScript 6 стандарта може да се види <a href="http://www.ecma-international.org/ecma-262/6.0/">тук</a>.</p>
+<h2 id="характеристики-на-ecmascript-6"><a class="header-link" href="#характеристики-на-ecmascript-6"></a>Характеристики на ECMAScript 6</h2>
+<h3 id="arrow-функции"><a class="header-link" href="#arrow-функции"></a>Arrow функции</h3>
+<p>Arrow функциите са кратък запис на анонимна функция в езика. Те имат глава и тяло, като в главата се указват аргументите, които приема функцията, а тялото описва действието на функцията. Тялото на arrow функцията има 2 форми. Тялото може да бъде израз или блок от изрази <code>{ }</code>. Когато тялото на arrow функцията е израз, функцията връща резултата от оценяването на израза.</p>
+<p>JavaScript преди ES6:</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> materials = [
+  <span class="hljs-string">'Hydrogen'</span>,
+  <span class="hljs-string">'Helium'</span>,
+  <span class="hljs-string">'Lithium'</span>,
+  <span class="hljs-string">'Beryllium'</span>
+];
+
+<span class="hljs-keyword">var</span> materialsLength1 = materials.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">material</span>) </span>{
+  <span class="hljs-keyword">return</span> material.length;
+}); <span class="hljs-comment">// [8, 6, 7, 9]</span>
+
+<span class="hljs-keyword">var</span> evens = [<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>];
+<span class="hljs-keyword">var</span> pairs1 = evens.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">v</span>) </span>{
+  <span class="hljs-keyword">return</span> {<span class="hljs-attr">even</span>: v, <span class="hljs-attr">odd</span>: v + <span class="hljs-number">1</span>};
+});</code></pre><p>ECMAScript 6:</p>
+<pre class="hljs"><code>
+<span class="hljs-comment">// arrow функция с блок за тяло</span>
+<span class="hljs-keyword">var</span> materialsLength2 = materials.map(<span class="hljs-function">(<span class="hljs-params">material</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> material.length;
+});
+
+evens.forEach(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (v % <span class="hljs-number">4</span> === <span class="hljs-number">0</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'divisible by four'</span>);
+  }
+});
+
+<span class="hljs-comment">// arrow функции с израз за тяло</span>
+<span class="hljs-keyword">var</span> materialsLength3 = materials.map(<span class="hljs-function"><span class="hljs-params">material</span> =&gt;</span> material.length);
+
+<span class="hljs-keyword">var</span> pairs2 = evens.map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> ({<span class="hljs-attr">even</span>: v, <span class="hljs-attr">odd</span>: v + <span class="hljs-number">1</span>}));</code></pre><p>Дотук единствената разлика на arrow функцията с познатата <code>function () {}</code> е, че пишем по-малко и може да не пишем блок, когато имаме един израз.
+Обикновените функции, дефинирани чрез <code>function () {}</code> създават собствен <code>this</code> контекст, докато arrow функциите не създават собствен <code>this</code> контекст, a използват <code>this</code> контекста на функцията (която е дефинирана чрез <code>function</code>), в която са дефинирани.</p>
+<p>ECMAScript 5:</p>
+<pre class="hljs"><code><span class="hljs-comment">//  вариант 1</span>
+<span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
+<span class="hljs-keyword">this</span>.nums.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">v</span>) </span>{
+    <span class="hljs-keyword">if</span> (v % <span class="hljs-number">5</span> === <span class="hljs-number">0</span>)
+        self.fives.push(v);
+});
+
+<span class="hljs-comment">//  вариант 2</span>
+<span class="hljs-keyword">this</span>.nums.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">v</span>) </span>{
+    <span class="hljs-keyword">if</span> (v % <span class="hljs-number">5</span> === <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">this</span>.fives.push(v);
+}, <span class="hljs-keyword">this</span>);
+
+<span class="hljs-comment">//  вариант 3 (само в ECMAScript 5.1 и нагоре)</span>
+<span class="hljs-keyword">this</span>.nums.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">v</span>) </span>{
+    <span class="hljs-keyword">if</span> (v % <span class="hljs-number">5</span> === <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">this</span>.fives.push(v);
+}.bind(<span class="hljs-keyword">this</span>));</code></pre><p>ECMAScript 6 arrow функция, която не създава нов <code>this</code> контекст, а преизползва последния:</p>
+<pre class="hljs"><code><span class="hljs-keyword">this</span>.nums.forEach(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (v % <span class="hljs-number">5</span> === <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">this</span>.fives.push(v);
+});</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN Arrow Functions</a></p>
+<h3 id="класове"><a class="header-link" href="#класове"></a>Класове</h3>
+<p>Класовете в ES6 имат повече синтактична захар. Нововъведенията са:</p>
+<ul class="list">
+<li>Ключовата дума <code>class</code> служи за дефиниция за клас.</li>
+<li>Класовете вече имат конструктор, който се дефинира чрез специалната функция <code>constructor</code> в класа.</li>
+<li>По-лесен достъп до родителския клас чрез <code>super</code>.</li>
+<li>По-удобен синтаксис за дефиниране на <code>get</code> и <code>set</code> на property (свойство) на обекта чрез така наречените <strong>computed proerties</strong>.</li>
+<li><code>static</code> методи на класа, които могат да се извикат без да се създава обект от класа.</li>
+<li>Наследяване на класове чрез <code>extends</code>. В JavaScript наследяването е прототипни-базирано и преди ES6 разработчиците трябваше да пресъздават колелото като дефинират собствен механизъм за наследяване, от което следваше хаос.</li>
+<li>От примера по-долу се вижда и че няма нужда да пишем ключовата дума <code>function</code>, когато дефинираме функции на класа. Освен това няма нужда да закачаме функциите за <code>this.prototype</code>, както преди ES6.</li>
+</ul>
+<p>Проста дефиниця на клас в ES6:</p>
+<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-comment">// конструктор</span>
+    <span class="hljs-keyword">constructor</span>(id, x, y) {
+        <span class="hljs-comment">// инициализация на данните на конструирания обект, ползвайки this</span>
+        <span class="hljs-keyword">this</span>.id = id;
+        <span class="hljs-keyword">this</span>.move(x, y);
+    }
+
+    <span class="hljs-comment">// няма нужда от function или закачане на функцията за this... подразбира се</span>
+    move(x, y) {
+        <span class="hljs-keyword">this</span>.x = x;
+        <span class="hljs-keyword">this</span>.y = y;
+    }
+}</code></pre><h4 id="изчислими-свойства"><a class="header-link" href="#изчислими-свойства"></a>Изчислими свойства</h4>
+<p>Изчислимите свойства (computed properties) в ES6 се дефинират чрез <code>get</code> и <code>set</code>:</p>
+<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> </span>{
+    <span class="hljs-keyword">constructor</span>(width, height) {
+        <span class="hljs-keyword">this</span>._width  = width;
+        <span class="hljs-keyword">this</span>._height = height;
+    }
+    set width  (width)  { <span class="hljs-keyword">this</span>._width = width;               }
+    get width  ()       { <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._width;                }
+    set height (height) { <span class="hljs-keyword">this</span>._height = height;             }
+    get height ()       { <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._height;               }
+    get area   ()       { <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._width * <span class="hljs-keyword">this</span>._height; }
+};
+
+<span class="hljs-keyword">var</span> r = <span class="hljs-keyword">new</span> Rectangle(<span class="hljs-number">50</span>, <span class="hljs-number">20</span>);  <span class="hljs-comment">// създаваме обект, както в ECMAScript 5</span>
+r.area === <span class="hljs-number">1000</span>;    <span class="hljs-comment">// get на изчислимо свойство</span>
+
+r.width = <span class="hljs-number">6</span>;    <span class="hljs-comment">// set на изчислимо свойство</span>
+r.height = <span class="hljs-number">7</span>;
+r.area === <span class="hljs-number">42</span>;</code></pre><h4 id="наследяване"><a class="header-link" href="#наследяване"></a>Наследяване</h4>
+<p>Наследяване в ES6:</p>
+<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-keyword">constructor</span> (id, x, y, width, height) {
+        <span class="hljs-comment">// извикване на конструктора на родителския клас чрез super</span>
+        <span class="hljs-keyword">super</span>(id, x, y);
+        <span class="hljs-keyword">this</span>.width  = width;
+        <span class="hljs-keyword">this</span>.height = height;
+    }
+}</code></pre><h4 id="статични-методи"><a class="header-link" href="#статични-методи"></a>Статични методи</h4>
+<p>Статични методи на клас в ES6:</p>
+<pre class="hljs"><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-keyword">constructor</span> (id, x, y, radius) {
+        <span class="hljs-keyword">super</span>(id, x, y);
+        <span class="hljs-keyword">this</span>.radius = radius;
+    }
+    <span class="hljs-comment">// дефиниция на статичен метод</span>
+    <span class="hljs-keyword">static</span> defaultCircle () {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Circle(<span class="hljs-string">"default"</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
+    }
+}
+
+<span class="hljs-keyword">var</span> defCircle = Circle.defaultCircle();</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">MDN Classes</a></p>
+<h3 id="по-кратки-обектни-литерали"><a class="header-link" href="#по-кратки-обектни-литерали"></a>По-кратки обектни литерали</h3>
+<p>В ES6 обектните литерали се дефинират с по-малко писане и повече свобода.</p>
+<h4 id="променлива-в-обектен-литерал"><a class="header-link" href="#променлива-в-обектен-литерал"></a>Променлива в обектен литерал</h4>
+<p>В JavaScript често ни се налага да създадем обектен литерал, който има ключ <code>foo</code>, а за стойност подаваме променлива със същото име и накрая пишем <code>{foo: foo}</code>. ES6 спестява писане, като <code>{foo: foo}</code> е същото като да напишеш <code>{foo}</code>, където обектният литерал ще има за ключ името на променливата <code>foo</code>, а за стойност - стойността на променливата <code>foo</code>:</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> data = <span class="hljs-number">42</span>;
+<span class="hljs-keyword">var</span> handler = <span class="hljs-function">(<span class="hljs-params">input</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (input === <span class="hljs-number">42</span>) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'handle'</span>);
+    }
+};
+
+<span class="hljs-comment">// ECMAScript 6</span>
+<span class="hljs-keyword">var</span> obj = {handler, data};
+
+<span class="hljs-comment">// същото като obj, но с повече писане</span>
+<span class="hljs-keyword">var</span> obj2 = {
+    <span class="hljs-attr">handler</span>: handler,
+    <span class="hljs-attr">data</span>: data
+};</code></pre><h4 id="функция-в-обектен-литерал"><a class="header-link" href="#функция-в-обектен-литерал"></a>Функция в обектен литерал</h4>
+<p>При дефиниране на функция в обектен литерал <code>{ }</code> вече няма нужда да даваме символен низ като ключ на към функцията, а може диреткно да запишем името на функцията, последвано от аргументите и тялото на функцията:</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> obj = {
+    <span class="hljs-comment">// дефиниция на метод</span>
+    toString() {
+        <span class="hljs-comment">// извикване на метод от родителския обект (в случая родителят е Object)</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"d "</span> + <span class="hljs-keyword">super</span>.toString();
+    }
+};</code></pre><h4 id="динамични-(изчислими)-ключове-на-обектни-литерали"><a class="header-link" href="#динамични-(изчислими)-ключове-на-обектни-литерали"></a>Динамични (изчислими) ключове на обектни литерали</h4>
+<p>Друго нововъведение е възможността за дефиниране на ключ в обектен литерал чрез израз, който се изчислява при създаването на обектния литерал. За целта е въведен синтаксис квадратни скоби <code>[израз]: стойност</code>, където оценката на <code>израз</code>-ът в скобите дава името на ключа в обекта.</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> obj = {
+    [ <span class="hljs-string">'prop_'</span> + <span class="hljs-function">(<span class="hljs-params">(</span>) =&gt;</span> <span class="hljs-number">42</span>)() ]: <span class="hljs-number">42</span>
+};
+
+obj[<span class="hljs-string">'prop_42'</span>] === <span class="hljs-number">42</span>;
+obj.prop_42 === <span class="hljs-number">42</span>;</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals">MDN Grammar and types: Object literals</a></p>
+<h3 id="шаблонни-низове"><a class="header-link" href="#шаблонни-низове"></a>Шаблонни низове</h3>
+<p>Крайно време беше и в JavaScript да въведат шаблонни низове, като тези в Shell и PHP. За да се създаден шаблонен символен низ се използват специалните кавички <code>string text</code>, а за <strong>интерполиране</strong> (оценка) на изрази се използват къдрави скоби с долар пред тях - <code>Hello, ${name}</code>. Освен този специален вид символни низове могат да се пишат на повече от един ред, който също е улеснения и няма нужда да се прави <code>[&#39;line1&#39;, &#39;line2&#39;, ...].join(&#39;\n&#39;)</code>.</p>
+<p>Демонстрация:</p>
+<pre class="hljs"><code><span class="hljs-comment">// елементарен едноредов символен низ</span>
+<span class="hljs-string">`In JavaScript '\n' is a line-feed.`</span>
+
+<span class="hljs-comment">// многоредов символен низ</span>
+<span class="hljs-string">`In JavaScript this is
+ not legal.`</span>
+
+<span class="hljs-keyword">var</span> name = <span class="hljs-string">"Bob"</span>, time = <span class="hljs-string">"today"</span>;
+
+<span class="hljs-comment">// интерполация на символен низ</span>
+<span class="hljs-string">`Hello <span class="hljs-subst">${name}</span>, how are you <span class="hljs-subst">${time}</span>?`</span></code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings">MDN Template Strings</a></p>
+<h3 id="деструктуриране-(разпадане)"><a class="header-link" href="#деструктуриране-(разпадане)"></a>Деструктуриране (разпадане)</h3>
+<p>При присвояване на масив или обект на променлива можем да разпаднем структурата на части и едновременно да присвоим части от структурата на няколко променливи. Това става възможно чрез <strong>pattern matching</strong>. Pattern matching може да се преведе като &quot;съпоставяне на образци&quot;, но не звучи много добре. Pattern matching е характеристика на езици като Haskell, Elixir, Scala, Prolog.</p>
+<h4 id="присвояване-чрез-разпадане"><a class="header-link" href="#присвояване-чрез-разпадане"></a>Присвояване чрез разпадане</h4>
+<p>Когато разполагаме с масив и искаме да вземем първия и третия елемент можем просто да:</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> [a, , b] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+
+a === <span class="hljs-number">1</span>;
+b === <span class="hljs-number">3</span>;</code></pre><p>В ES6 можем да рападаме и обекти на променливи:</p>
+<pre class="hljs"><code><span class="hljs-comment">// съпоставяне на обект</span>
+<span class="hljs-keyword">var</span> { <span class="hljs-attr">op</span>: a, <span class="hljs-attr">lhs</span>: { <span class="hljs-attr">op</span>: b }, <span class="hljs-attr">rhs</span>: c } = getASTNode();
+<span class="hljs-comment">// така създадохме променливите a, b и c</span>
+
+<span class="hljs-comment">// в ECMAScript 5 същото щеше да е с 3 реда по-дълго</span>
+<span class="hljs-keyword">var</span> tmp = getASTNode();
+<span class="hljs-keyword">var</span> a = tmp.op;
+<span class="hljs-keyword">var</span> b = tmp.lhs.op;
+<span class="hljs-keyword">var</span> c = tmp.rhs;
+
+<span class="hljs-comment">// ползвайки по-краткия синтаксис за обектни литерали</span>
+<span class="hljs-comment">// създаваме и остойностяваме променливите `op`, `lhs` и `rhs`</span>
+<span class="hljs-keyword">var</span> {op, lhs, rhs} = getASTNode();</code></pre><p>Разбира се, можем да комбинираме масиви и обекти и да ги разпадаме по-посложни начини.</p>
+<h4 id="разпадане-на-аргументите-на-функция"><a class="header-link" href="#разпадане-на-аргументите-на-функция"></a>Разпадане на аргументите на функция</h4>
+<p>При дефиницията на функция можем да укажем как трябва да се разпаднат подадените аргументи и на кои променливи кои части трябва да се присвоят.</p>
+<p>Да, разпадането на аргументите работи и за <strong>arrow</strong> функции. :)</p>
+<pre class="hljs"><code><span class="hljs-comment">// деструктуриране в аргументите в дефиницията на функция</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">g</span>(<span class="hljs-params">{name: x}</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(x);
+}
+g({<span class="hljs-attr">name</span>: <span class="hljs-number">5</span>});</code></pre><h4 id="fail-soft-деструктуриране"><a class="header-link" href="#fail-soft-деструктуриране"></a>Fail-soft деструктуриране</h4>
+<p>При деструктуриране можем да подадем стойност по подразбиране, който да се използва, ако обектът или масивът нямат дадената стойност, която търсим.</p>
+<pre class="hljs"><code><span class="hljs-comment">// деструктурирането не хвърля грешки при неуспех</span>
+<span class="hljs-keyword">var</span> [a] = [];
+a === <span class="hljs-literal">undefined</span>;
+
+<span class="hljs-comment">// а когато деструктурирането се провали можем да зададем стойност по подразбиране</span>
+<span class="hljs-keyword">var</span> [a = <span class="hljs-number">1</span>] = [];
+a === <span class="hljs-number">1</span>;</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN Destructuring assignment</a></p>
+<h3 id="аргументи-по-подразбиране"><a class="header-link" href="#аргументи-по-подразбиране"></a>Аргументи по подразбиране</h3>
+<p>В ES6 аргументите на функция могат да получат стойност по подразбиране, ако функцията е извикана без стойност за дадения аргумент. Това е възможност само за последния аргументи на функцията. Не е възможно първият аргумент да има стойност по подразбиране, а при извикване да сме подали само втори аргумент, защото за да сме дали втори, трябва да сме дали и първи аргумент също.</p>
+<p>Пример:</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y = <span class="hljs-number">42</span></span>) </span>{
+  <span class="hljs-keyword">return</span> x + y;
+}
+
+<span class="hljs-number">52</span> === add(<span class="hljs-number">8</span>);
+<span class="hljs-number">10</span> === add(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>);</code></pre><h3 id="променливи-локални-за-блок"><a class="header-link" href="#променливи-локални-за-блок"></a>Променливи локални за блок</h3>
+<p>В ES6 вече могат да се създават променливи, локални за блок. Променливи декларирани с ключовата дума <code>var</code> биват изкачени в началото на функцията и са достъпни от всички вложени блокове в тази функция, независимо от факта, че променливата може да е декларирана в някой от блоковете.</p>
+<p>Вече с новите ключови думи <code>let</code> и <code>const</code> можем да дефинираме променливи, които са локални само за този блок.</p>
+<h4 id="let"><a class="header-link" href="#let"></a>let</h4>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-number">42</span> &gt; <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">let</span> x;  <span class="hljs-comment">// x е локална само за този if блок</span>
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-number">1</span> &lt; <span class="hljs-number">2</span>) {
+      <span class="hljs-comment">// презаписва външната променлива x</span>
+      <span class="hljs-keyword">let</span> x = <span class="hljs-string">"sneaky"</span>;
+      x = <span class="hljs-string">"foo"</span>;
+    }
+
+    <span class="hljs-comment">// грешка, х вече е декларирана в същия блок</span>
+    <span class="hljs-keyword">let</span> x = <span class="hljs-string">"inner"</span>;
+  }
+}</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a></p>
+<h4 id="const"><a class="header-link" href="#const"></a>const</h4>
+<p><code>const</code> има специална семантика и никога не променя референцията си към стойността. Но референциите в самия обект могат да се променят.</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+<span class="hljs-keyword">var</span> b = {<span class="hljs-attr">key</span>: <span class="hljs-string">'value'</span>};
+<span class="hljs-keyword">const</span> c = {a, b};
+
+a = [<span class="hljs-number">1</span>];    <span class="hljs-comment">// спокойно можем да променим масива и да се отрази на константата</span>
+
+<span class="hljs-comment">// c вече е {a: [1], b: {key: 'value'}}</span>
+
+c = {a}; <span class="hljs-comment">// грешка, не можем да променяме референцията на константа</span></code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">const</a></p>
+<h3 id="итератори-+-for..of-цикъл-за-обхождане-с-итератор"><a class="header-link" href="#итератори-+-for..of-цикъл-за-обхождане-с-итератор"></a>Итератори + for..of цикъл за обхождане с итератор</h3>
+<p>В ES6 вече има итератори, които могат да се използват със специалния <code>for (var item of items) { ... }</code>. Обектите, могат да имплементират Iterable протокола, като дефинират функция, която е стойност на специалния ключ <code>Symbol.iterator</code> (@@iterator). Имплементацията на тази функция трябва да връща обект, който има собствена функция <code>next()</code>, която на всяко извикване връща обект <code>{done: true или false, value: стойност}</code>:</p>
+<pre class="hljs"><code><span class="hljs-keyword">let</span> fibonacci = {
+  [<span class="hljs-built_in">Symbol</span>.iterator]() {
+    <span class="hljs-keyword">let</span> pre = <span class="hljs-number">0</span>, cur = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> {
+      next() {
+        [pre, cur] = [cur, pre + cur];
+        <span class="hljs-keyword">return</span> { <span class="hljs-attr">done</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">value</span>: cur }
+      }
+    }
+  }
+}
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> n <span class="hljs-keyword">of</span> fibonacci) {
+  <span class="hljs-keyword">if</span> (n &gt; <span class="hljs-number">1000</span>)
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-built_in">console</span>.log(n);
+}</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of">MDN for...of</a></p>
+<h3 id="генератори*"><a class="header-link" href="#генератори*"></a>Генератори*</h3>
+<p>Наред с итераторите, могат да се дефинират и генератори чрез специалната ключова дума <code>yield</code>, която връща контрола на последната функция, която е извикала функцията, в която се случва <code>yield</code>:</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> fibonacci = {
+  [<span class="hljs-built_in">Symbol</span>.iterator]: <span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> pre = <span class="hljs-number">0</span>, cur = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span> (;;) {
+      <span class="hljs-keyword">var</span> temp = pre;
+      pre = cur;
+      cur += temp;
+      <span class="hljs-keyword">yield</span> cur;
+    }
+  }
+}
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> n <span class="hljs-keyword">of</span> fibonacci) {
+  <span class="hljs-keyword">if</span> (n &gt; <span class="hljs-number">1000</span>)
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-built_in">console</span>.log(n);
+}</code></pre><h3 id="модули"><a class="header-link" href="#модули"></a>Модули</h3>
+<p>Крайно време беше да се въведат и модули в JavaScript. Досега разработчиците се бореха с липсата на модули по много начини чрез <code>RequireJS</code> и <code>CommonJS</code>. В ES6 един JavaScript файл може да <code>export</code>-ира функции, променливи, класове, които да се <code>import</code>-ират в друг JavaScript файл:</p>
+<pre class="hljs"><code><span class="hljs-comment">// lib/math.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">x, y</span>) </span>{
+  <span class="hljs-keyword">return</span> x + y;
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> pi = <span class="hljs-number">3.141593</span>;</code></pre><pre class="hljs"><code><span class="hljs-comment">// app.js</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> math <span class="hljs-keyword">from</span> <span class="hljs-string">"lib/math"</span>;
+alert(<span class="hljs-string">"2π = "</span> + math.sum(math.pi, math.pi));</code></pre><pre class="hljs"><code><span class="hljs-comment">// otherApp.js</span>
+<span class="hljs-keyword">import</span> {sum, pi} <span class="hljs-keyword">from</span> <span class="hljs-string">"lib/math"</span>;
+alert(<span class="hljs-string">"2π = "</span> + sum(pi, pi));</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export">export</a></p>
+<h3 id="структури-от-данни"><a class="header-link" href="#структури-от-данни"></a>Структури от данни</h3>
+<p>Въведени са <code>Map</code>, <code>Set</code>, <code>WeakMap</code> и <code>WeakSet</code>, като <code>Map</code> и <code>Set</code> могат да бъдат итерирани с <code>for..of</code> цикъла.</p>
+<h3 id="проксита"><a class="header-link" href="#проксита"></a>Проксита</h3>
+<p>Прокситата в ES6 служат за дефиниране на специално поведение на основни операции като взимане на стойност по ключ от обект, присвояване, обхождане на структурата, извикване на функция и други.</p>
+<p>Пример за презаписване на взимане на стойност по ключ на обект:</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> target = {};
+<span class="hljs-keyword">var</span> handler = {
+  <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">receiver, name</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello, <span class="hljs-subst">${name}</span>!`</span>;
+  }
+};
+
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+p.world === <span class="hljs-string">'Hello, world!'</span>;</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">MDN Proxy</a></p>
+<h3 id="binary-and-octal-literals"><a class="header-link" href="#binary-and-octal-literals"></a>Binary and Octal Literals</h3>
+<p>Два нови числови литерала са добавени - <code>b</code> за binary (двоична бройна система) и <code>o</code> за octal (осмична бройна система).</p>
+<pre class="hljs"><code><span class="hljs-number">0b111110111</span> === <span class="hljs-number">503</span>; <span class="hljs-comment">// true</span>
+<span class="hljs-number">0o767</span> === <span class="hljs-number">503</span>; <span class="hljs-comment">// true</span></code></pre><h3 id="асинхронно-програмиране-с-promises-(обещания)"><a class="header-link" href="#асинхронно-програмиране-с-promises-(обещания)"></a>Асинхронно програмиране с Promises (обещания)</h3>
+<p>Често се налага да се сдобием с някаква информация след входно/изходна операция, която отнема повече време. Обаче JavaScript се интерпретира на една нишка и не можем да пишем многонишкови програми. Вместо това в JavaScript има event loop, за който няма да говорим в тази статия, защото е извън нейния обхват.
+Когато искаме да сършим някоя тежка входно/изходна операция можем да използваме За да не блокир</p>
+<p><code>Promise</code> обектът се използва за асинхронни изчисления. Най-често това е някоя входно/изходна операция, като HTTP request или заявка към някоя база от данни. Той представлява стойност, която ще можем да оценим сега или някога в бъдещето.
+<code>Promise</code> (oбещанието) има 3 състояния. В началото е <code>pending</code>, тоест &quot;обещанието&quot; все още не е изпълнено и няма стойност. Има точно 2 възможни прехода от състояние <code>pending</code>:</p>
+<ul class="list">
+<li>Към <code>fulfilled</code>, когато обещанието е спазено, представлявайки успешна операция.</li>
+<li>Към <code>rejected</code>, когато обещанието не може да бъде спазено и е възникнал проблем.
+Веднъж щом обещанието не е <code>pending</code>, то остава такова каквото е.</li>
+</ul>
+<p>Конструкторът на <code>Promise</code> приема като единствен аргумент функция (executor), която получава като 2 аргумента специалните функции <code>resolve</code> и <code>reject</code>. В тази функция &quot;executor&quot; извършваме действието, което може да е асинхронно и когато разберем, че сме приключили с изчислението (било то чрез callback или чрез друг Promise), извикваме <code>resolve</code> за успех или <code>reject</code> за неуспех.
+Вместо да ползваме <code>resolve</code> и <code>reject</code> функциите, за да укажем дали обещанието е спазено или не и с каква стойност, можем директно да върнем стойност с <code>return</code> при успех или да хвърлим грешка с <code>throw</code>, която ще е стойността при неуспех на обешанието.
+Executor функцията може просто да върне с <code>return</code> друг <code>Promise</code>. Така можем да навържем на верига последователно няколко обещания, които се изпълняват строго последователно. Това е един метод за синхронизация.</p>
+<p>Има и друг метод на синхронизация на обещанията. Когато знаем, че можем успоредно да изпълним няколко асинхронни операции, можем да използваме функцията <code>Promise.all</code>, която приема масив от обещания и връща ново обещание, която става <code>fulfilled</code> само когато всички обещания от подадения масив са <code>fulfilled</code>. Ако някое от обещанията е <code>rejected</code>, то и <code>Promise.all</code>, ще е <code>rejected</code>.
+<code>Promise.all</code> е удобен механизъм за синхронизация, подобен на бариерата (latch), позната от конкурентното програмиране.</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">timeout</span>(<span class="hljs-params">duration = <span class="hljs-number">0</span></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        <span class="hljs-comment">// resolve after duration milliseconds</span>
+        setTimeout(resolve, duration);
+    });
+}
+
+<span class="hljs-keyword">var</span> p = timeout(<span class="hljs-number">1000</span>).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> timeout(<span class="hljs-number">2000</span>); <span class="hljs-comment">// return another Promise</span>
+}).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"hmm"</span>); <span class="hljs-comment">// reject with value "hmm"</span>
+}).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
+    <span class="hljs-comment">// wait for both to be fulfilled</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all([timeout(<span class="hljs-number">100</span>), timeout(<span class="hljs-number">200</span>)]);
+});</code></pre><p>Повече информация: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN Promise</a></p>
+<h3 id="източници-и-повече-информация"><a class="header-link" href="#източници-и-повече-информация"></a>Източници и повече информация</h3>
+<p>Нивото на поддръжка на стандарта в модерните JavaScript engines (браузъри и runtimes) може да се провери <a href="http://kangax.github.io/compat-table/es6/">тук</a>.</p>
+<p>Пълната спецификация на ECMAScript 6 стандарта може да се види <a href="http://www.ecma-international.org/ecma-262/6.0/">тук</a>.</p>
+<p>Повече информация за:</p>
+<ul class="list">
+<li><p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow функции</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">Класове</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals">Обектни литерали</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings">Шаблонни низове и интерполация</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Деструктуриране (Pattern Matching)</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">const</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of">for...of</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export">export</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></p>
+</li>
+</ul>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script>	var __ht__currentlyHoveredElements = [];
+	var __ht__currentHoverElement;
+	var __ht__hoverBorder;
+	var __ht__selectedBorder;
+	var __ht__bottomGrader;
+	var __ht__bottomGrader1stHalf;
+	var __ht__bottomGrader2ndHalf;
+
+	var __ht__backLabelLink;
+
+	var __ht__selectedElementID;
+	var __ht__submitButton;
+	var __ht__saveCommentButton;
+	var __ht__deleteCommentButton;
+
+	var __ht__highlightedID = -1;
+
+	var __ht__finalVerdicts = [];
+	
+
+	var __ht__currentComments = {};
+	
+	var __ht__currentCommentsPositions = {};
+	var __ht__action = 'view';
+
+	var __ht__loadingDiv;
+	var __ht__loadingDivInfo;
+
+	function __ht__updateTextInput() {
+      	$('#__ht__score').val( $('#__ht__scoreslider').val() );
+    }
+
+	(function() {
+    if (window.addEventListener) {
+        // Standard
+        window.addEventListener('load', __ht__jQueryCheck, false);
+    }
+    else if (window.attachEvent) {
+        // Microsoft
+        window.attachEvent('onload', __ht__jQueryCheck);
+    }
+
+    function __ht__changeViewBox(id) {
+    	if (id != __ht__highlightedID) {
+    		if (__ht__highlightedID != -1) {
+    			 $('#__ht__comment'+__ht__highlightedID.toString()).css('background', '#ff00ff');
+    			 $('.__ht__bottomComment'+__ht__highlightedID.toString()).css('background-color','transparent');
+    		}
+    		__ht__highlightedID = id;
+    		if (id != -1) {
+	    		 $('#__ht__comment'+id.toString()).css('background', '#0000ff');
+	    		 $('.__ht__bottomComment'+id.toString()).css('background', '#e67e22');
+	    	}
+    	}
+
+    	if (id != -1) {
+			$('html, body').animate({
+		        scrollTop: $('#__ht__comment'+id.toString()).offset().top
+		    }, 1000);
+
+			__ht__bottomGrader2ndHalf.animate({
+		        scrollTop: __ht__bottomGrader2ndHalf.scrollTop() + $('.__ht__bottomComment'+id.toString()).first().position().top
+		    }, 1000);
+		}
+    }
+
+    function __ht__hoveredElement(obj) {
+    	__ht__currentlyHoveredElements.push(obj);
+    	__ht__updateHoveredElement();
+    }
+
+    function __ht__unhoveredElement(obj) {
+    	__ht__currentlyHoveredElements.splice(__ht__currentlyHoveredElements.indexOf(obj), 1);
+    	__ht__updateHoveredElement();
+    }
+
+    function __ht__getElementPositionInfo(elem) {
+    	__ht__tempWidth = elem.width() + parseInt(elem.css('padding-left').replace('px', '')) + parseInt(elem.css('padding-right').replace('px', ''));
+    	__ht__tempHeight = elem.height() + parseInt(elem.css('padding-top').replace('px', '')) + parseInt(elem.css('padding-bottom').replace('px', ''));
+    	__ht__tempLeft = elem.offset().left;
+    	__ht__tempTop = elem.offset().top;
+    	__ht__tempPosition = 'absolute';
+
+		__ht__fixedparents = elem.parents().filter(function() {
+		    return $(this).css('position') == 'fixed';
+		  });
+		if ( __ht__fixedparents.length )
+		{
+			__ht__tempPosition = 'fixed';
+		}
+		else if (elem.css('position') == 'fixed')
+		{
+			__ht__tempPosition = 'fixed';
+		}
+
+		return {width: __ht__tempWidth, height: __ht__tempHeight, left: __ht__tempLeft, top: __ht__tempTop, position: __ht__tempPosition};
+    }
+
+    function __ht__updateHoveredElement() {
+    	var __ht__len = __ht__currentlyHoveredElements.length;
+    	var __ht__oldHoverElement = __ht__currentHoverElement;
+    	var __ht__maxID = -1;
+
+    	if (__ht__len == 0)
+    	{
+    		__ht__currentHoverElement = undefined;
+    	}
+    	else if (__ht__len == 1)
+    	{
+    		__ht__currentHoverElement = $(__ht__currentlyHoveredElements[0]);
+    	}
+
+    	for (i = 0; i < __ht__len; i++)
+    	{
+    		if (parseInt($(__ht__currentlyHoveredElements[i]).attr('data-htextrainfo')) > __ht__maxID)
+    		{
+    			__ht__maxID = parseInt($(__ht__currentlyHoveredElements[i]).attr('data-htextrainfo'));
+				__ht__currentHoverElement = $(__ht__currentlyHoveredElements[i]);
+    		}
+    	}
+
+    	if (__ht__currentHoverElement !== undefined)
+		{
+			__ht__postinfos = __ht__getElementPositionInfo(__ht__currentHoverElement);
+			__ht__hoverBorder.width(__ht__postinfos.width);
+			__ht__hoverBorder.height(__ht__postinfos.height);
+			__ht__hoverBorder.css('position', __ht__postinfos.position);
+			__ht__hoverBorder.offset({ top: __ht__postinfos.top, left: __ht__postinfos.left });
+		}
+    }
+
+    function __ht__addNewComment(commentID) {
+    	var __ht__temptemptemp = $('<div id="__ht__comment'+commentID.toString()+'"></div>');
+	    __ht__temptemptemp.width(__ht__currentCommentsPositions[commentID].width);
+		__ht__temptemptemp.height(__ht__currentCommentsPositions[commentID].height);
+		__ht__temptemptemp.css('position', __ht__currentCommentsPositions[commentID].position);
+		if (__ht__currentCommentsPositions[commentID].position == 'fixed')
+		{
+			__ht__temptemptemp.offset({ top: __ht__currentCommentsPositions[commentID].top - $(window).scrollTop(), left: __ht__currentCommentsPositions[commentID].left - $(window).scrollLeft() });
+		}
+		else
+		{
+			__ht__temptemptemp.offset({ top: __ht__currentCommentsPositions[commentID].top, left: __ht__currentCommentsPositions[commentID].left });
+		}
+		__ht__temptemptemp.css('background', '#ff00ff');
+		__ht__temptemptemp.css('opacity', '0.42');
+		__ht__temptemptemp.css('z-index', '10004');
+		if (__ht__action == 'review')
+		{
+			__ht__temptemptemp.css('pointer-events', 'none');
+		}
+
+		__ht__temptemptemp.attr('data-htextrainfobox', commentID);
+
+		if (__ht__action == 'view')
+		{
+			__ht__temptemptemp.bind('click', function(e) {
+		        e.preventDefault();
+
+		        __ht__bottomGrader.css('visibility', 'visible');
+		        __ht__changeViewBox($(this).attr('data-htextrainfobox'));
+		    });
+		}
+
+	    $('body').append(__ht__temptemptemp);
+    }
+
+    function __ht__hookwe() {
+
+    	$('head').append('<style type="text/css">.__ht__btn { border-radius: 3px; padding: 3px 7px; text-decoration: none; color: #fff; position: relative; display: inline-block; } .__ht__btn:active { transform: translate(0px, 5px); -webkit-transform: translate(0px, 5px); box-shadow: 0px 1px 0px 0px; } .__ht__green { background-color: #2ecc71; box-shadow: 0px 3px 0px 0px #15B358; } .__ht__green:hover { background-color: #48E68B; } .__ht__red { background-color: #e74c3c; box-shadow: 0px 3px 0px 0px #CE3323; } .__ht__red:hover { background-color: #FF6656; } .__ht__orange { background-color: #e67e22; box-shadow: 0px 3px 0px 0px #CD6509; } .__ht__orange:hover { background-color: #FF983C; } .__ht__blockquote { border-left: 1px solid #ccc; border-left: 10px solid #ccc; margin: 1.5em 10px; padding: 0.5em 10px; } .__ht__blockquote p { display: inline; } #__ht__elementcomment, #__ht__score, #__ht__finalcomment { color: black;</style>');
+
+    	var i = 0;
+	    $('body *').each(function() {
+	    	i++;
+		    $(this).attr('data-htextrainfo', i);
+		    if (i.toString() in __ht__currentComments)
+		    {
+		    	__ht__currentCommentsPositions[i.toString()] = __ht__getElementPositionInfo($(this));
+		    }
+		});
+
+		if (__ht__action == 'review') {
+			$('body *').click(function() {
+				__ht__bottomGrader.css('visibility', 'visible');
+				__ht__selectedBorder.css('visibility', 'visible');
+				__ht__selectedBorder.css('position', __ht__hoverBorder.css('position'));
+		    	__ht__selectedBorder.width(__ht__hoverBorder.width());
+				__ht__selectedBorder.height(__ht__hoverBorder.height());
+				__ht__selectedBorder.offset(__ht__hoverBorder.offset());
+				__ht__selectedElementID = __ht__currentHoverElement.attr('data-htextrainfo');
+				if (__ht__selectedElementID.toString() in __ht__currentComments)
+				{
+					$( '#__ht__elementcomment' ).val(__ht__currentComments[__ht__selectedElementID.toString()]);
+				}
+				else
+				{
+					$( '#__ht__elementcomment' ).val('');
+				}
+			});
+
+			$('body *').hover(
+				function() {
+				  	__ht__hoveredElement($( this )[0]);
+				},
+				function() {
+			  		__ht__unhoveredElement($( this )[0]);
+				}
+			);
+		}
+
+		for (var __ht__prop in __ht__currentCommentsPositions) {
+		    __ht__addNewComment(__ht__prop);
+		}
+
+		__ht__bottomGraderSpacer = $('<div>Коментари</div>');
+		__ht__bottomGraderSpacer.css('width', '100px');
+		__ht__bottomGraderSpacer.css('height', '30px');
+		__ht__bottomGraderSpacer.css('position', 'fixed');
+		__ht__bottomGraderSpacer.css('top', '40%');
+		__ht__bottomGraderSpacer.css('left', '0');
+		__ht__bottomGraderSpacer.css('background', '#00A693');
+		__ht__bottomGraderSpacer.css('color', 'white');
+		__ht__bottomGraderSpacer.css('text-align', 'center');
+		__ht__bottomGraderSpacer.css('line-height', '30px');
+		__ht__bottomGraderSpacer.css('cursor', 'default');
+		__ht__bottomGraderSpacer.css('z-index', '11000');
+		__ht__bottomGraderSpacer.click(function() {
+	    	__ht__bottomGrader.css('visibility', 'visible');
+		});
+		$('body').append(__ht__bottomGraderSpacer);
+
+		__ht__backLabelLink = $('<div>Назад</div>');
+		__ht__backLabelLink.css('width', '100px');
+		__ht__backLabelLink.css('height', '30px');
+		__ht__backLabelLink.css('position', 'fixed');
+		__ht__backLabelLink.css('top', '60%');
+		__ht__backLabelLink.css('left', '0');
+		__ht__backLabelLink.css('background', '#A60000');
+		__ht__backLabelLink.css('color', 'white');
+		__ht__backLabelLink.css('text-align', 'center');
+		__ht__backLabelLink.css('line-height', '30px');
+		__ht__backLabelLink.css('cursor', 'default');
+		__ht__backLabelLink.css('z-index', '11000');
+		__ht__backLabelLink.click(function() {
+	    	window.location = 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/review.php';
+		});
+		$('body').append(__ht__backLabelLink);
+
+		if (__ht__action == 'review') {
+			__ht__hoverBorder = $('<div></div>');
+			__ht__hoverBorder.css('border', '1px solid red');
+			__ht__hoverBorder.css('pointer-events', 'none');
+			__ht__hoverBorder.css('position', 'absolute');
+			__ht__hoverBorder.css('z-index', '10003');
+			$('body').append(__ht__hoverBorder);
+
+			__ht__selectedBorder = $('<div></div>');
+			__ht__selectedBorder.css('border', '1px solid #FDBCB4');
+			__ht__selectedBorder.css('background', '#FDBCB4');
+			__ht__selectedBorder.css('opacity', '0.60');
+			__ht__selectedBorder.css('pointer-events', 'none');
+			__ht__selectedBorder.css('position', 'absolute');
+			__ht__selectedBorder.css('z-index', '10002');
+			$('body').append(__ht__selectedBorder);
+		}
+
+		__ht__bottomGrader = $('<div></div>');
+		__ht__bottomGrader.css('position', 'fixed');
+		__ht__bottomGrader.css('width', '100%');
+		__ht__bottomGrader.css('bottom', '0');
+		__ht__bottomGrader.css('left', '0');
+		__ht__bottomGrader.css('height', '150px');
+		__ht__bottomGrader.css('background', '#555555');
+		__ht__bottomGrader.css('color', 'white');
+		__ht__bottomGrader.css('z-index', '10042');
+		__ht__bottomGrader.css('text-align', 'left');//MP:2017-01-04 (merge-back)		
+		__ht__bottomGrader.css('margin', '0px');//MP:2017-01-04 (merge-back)		
+		__ht__bottomGrader.css('visibility', 'hidden');
+		$('body').append(__ht__bottomGrader);
+
+		if (__ht__action == 'review') {
+			__ht__bottomGrader1stHalf = $('<div><div style="width:80%; height:100%; float:left; text-align:center;"><textarea id="__ht__finalcomment" placeholder="Напишете финалния си коментар тук..." style="resize: none; margin: 5px; width: 95%; height: 90%;"></textarea></div><div style="width:20%; height:100%; float:left; text-align:center;"><span style="margin: 5px; width: 90%; float: left; text-align: center;">Оценка</span><input id="__ht__score" style="margin: 5px; width: 90%; float: left;" type="text" value="5" disabled><input id="__ht__scoreslider" type="range" name="rangeInput" min="0" max="10" step="1" value="5" style="margin: 5px; width: 90%; float: left;" onchange="__ht__updateTextInput();"></div></div>');
+
+			__ht__submitButton = $('<a href="#" style="margin:auto; width:80%;" class="__ht__btn __ht__orange">Изпрати</a>');
+			__ht__bottomGrader1stHalf.find( "div:eq(1)" ).append(__ht__submitButton);
+
+			__ht__submitButton.bind('click', function(e) {
+			        e.preventDefault();
+
+			        if ( $( '#__ht__finalcomment' ).val() !== '' ) {
+
+			        	__ht__startLoading();
+
+			            $.ajax({
+			                url : 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/savescore.php',
+			                type: 'POST',
+			                //dataType: 'json',
+			                data : {
+			                    comment: $( '#__ht__finalcomment' ).val(),
+			                    user_id: 61853,
+			                    referat_id: '61793_3_92',
+			                    score: $( '#__ht__score' ).val()
+			                },
+			                success: function(data, textStatus, jqXHR)
+			                {
+			                    //receive(data);
+			                    __ht__loadingComplete('Successfully saved your score.', true);
+			                },
+			                error: function (jqXHR, textStatus, errorThrown)
+			                {
+			                    __ht__loadingComplete('Error saving your score', false);
+			                }
+			            });
+			        } else {
+
+			        }
+			    });
+
+			__ht__bottomGrader1stHalf.css('float', 'left');
+			__ht__bottomGrader1stHalf.css('width', '50%');
+			__ht__bottomGrader1stHalf.css('height', '100%');
+			//__ht__bottomGrader1stHalf.css('background', '#00ffff');
+			__ht__bottomGrader.append(__ht__bottomGrader1stHalf);
+
+			__ht__bottomGrader2ndHalf = $('<div><div style="width:80%; height:100%; float:left; text-align:center;"><textarea id="__ht__elementcomment" placeholder="Напишете вашия коментар по селектирания елемент от реферата..." style="resize: none; margin: 5px; width: 95%; height: 90%;"></textarea></div><div style="width:20%; height:100%; float:left; text-align:center;"></div></div>');
+			__ht__bottomGrader2ndHalf.css('float', 'left');
+			__ht__bottomGrader2ndHalf.css('width', '50%');
+			__ht__bottomGrader2ndHalf.css('height', '100%');
+			//__ht__bottomGrader2ndHalf.css('background', '#ff00ff');
+			__ht__bottomGrader.append(__ht__bottomGrader2ndHalf);
+
+			__ht__deleteCommentButton = $('<a href="#" style="margin:auto; margin-top:30px; width:80%;" class="__ht__btn __ht__red">Изтрий</a>');
+			__ht__bottomGrader2ndHalf.find( "div:eq(1)" ).append(__ht__deleteCommentButton);
+
+			__ht__deleteCommentButton.bind('click', function(e) {
+			        e.preventDefault();
+
+			        	__ht__startLoading();
+
+			            $.ajax({
+			                url : 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/deletecomment.php',
+			                type: 'POST',
+			                //dataType: 'json',
+			                data : {
+			                    user_id: 61853,
+			                    referat_id: '61793_3_92',
+			                    element_id: __ht__selectedElementID
+			                },
+			                success: function(data, textStatus, jqXHR)
+			                {
+			                	delete __ht__currentComments[__ht__selectedElementID.toString()];
+			                	$('#__ht__comment' + __ht__selectedElementID.toString()).remove();
+			                	$( '#__ht__elementcomment' ).val('');
+			                	__ht__loadingComplete('Successfully removed comment.', true);
+			                    //receive(data);
+			                },
+			                error: function (jqXHR, textStatus, errorThrown)
+			                {
+			                    __ht__loadingComplete('Error removing the comment', false);
+			                }
+			            });
+
+			    });
+
+			__ht__bottomGrader2ndHalf.find( "div:eq(1)" ).append('<br/>');
+
+			__ht__saveCommentButton = $('<a href="#" style="margin:auto; margin-top:20px; width:80%;" class="__ht__btn __ht__green">Запази</a>');
+			__ht__bottomGrader2ndHalf.find( "div:eq(1)" ).append(__ht__saveCommentButton);
+
+			__ht__saveCommentButton.bind('click', function(e) {
+			        e.preventDefault();
+
+			        if ( $( '#__ht__elementcomment' ).val() !== '' ) {
+
+			        	__ht__startLoading();
+
+			            $.ajax({
+			                url : 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/savecomment.php',
+			                type: 'POST',
+			                //dataType: 'json',
+			                data : {
+			                    comment: $( '#__ht__elementcomment' ).val(),
+			                    user_id: 61853,
+			                    referat_id: '61793_3_92',
+			                    element_id: __ht__selectedElementID
+			                },
+			                success: function(data, textStatus, jqXHR)
+			                {
+			                	__ht__currentComments[__ht__selectedElementID.toString()] = $( '#__ht__elementcomment' ).val();
+			                	__ht__currentCommentsPositions[__ht__selectedElementID.toString()] = __ht__getElementPositionInfo(__ht__selectedBorder);
+			                	__ht__addNewComment(__ht__selectedElementID);
+			                	__ht__loadingComplete('Successfully saved comment.', true);
+			                    //receive(data);
+			                },
+			                error: function (jqXHR, textStatus, errorThrown)
+			                {
+			                    __ht__loadingComplete('Error saving the comment', false);
+			                }
+			            });
+			        } else {
+
+			        }
+			    });
+		}
+
+		if (__ht__action == 'view') {
+			__ht__bottomGrader1stHalf = $('<div></div>');
+			__ht__bottomGrader1stHalf.css('float', 'left');
+			__ht__bottomGrader1stHalf.css('width', '50%');
+			__ht__bottomGrader1stHalf.css('height', '100%');
+			__ht__bottomGrader1stHalf.css('overflow-y', 'scroll');
+			__ht__bottomGrader1stHalf.css('word-wrap', 'break-word');
+
+			for (var i = 0; i < __ht__finalVerdicts.length; i++) {
+				__ht__bottomGrader1stHalf.append('<div class="__ht__blockquote"><b>'+__ht__finalVerdicts[i]['score'].toString()+' от 10 точки</b><br/>'+__ht__finalVerdicts[i]['comment']+'</div>');
+			}
+
+			__ht__bottomGrader.append(__ht__bottomGrader1stHalf);
+
+			__ht__bottomGrader2ndHalf = $('<div></div>');
+			__ht__bottomGrader2ndHalf.css('float', 'left');
+			__ht__bottomGrader2ndHalf.css('width', '50%');
+			__ht__bottomGrader2ndHalf.css('height', '100%');
+			__ht__bottomGrader2ndHalf.css('overflow-y', 'scroll');
+			__ht__bottomGrader2ndHalf.css('word-wrap', 'break-word');
+
+			for (var __ht__prop in __ht__currentComments) {
+				for (var i = 0; i < __ht__currentComments[__ht__prop].length; i++) {
+					var __ht__temptemptemp = $('<div class="__ht__blockquote">'+__ht__currentComments[__ht__prop][i]+'</div>');
+					__ht__temptemptemp.addClass('__ht__bottomComment' + __ht__prop);
+					__ht__temptemptemp.attr('data-htextrainfobox', __ht__prop);
+					__ht__temptemptemp.css('cursor', 'default');
+					__ht__temptemptemp.bind('click', function(e) {
+				        e.preventDefault();
+
+				        __ht__changeViewBox($(this).attr('data-htextrainfobox'));
+				    });
+					__ht__bottomGrader2ndHalf.append(__ht__temptemptemp);
+				}
+			}
+
+			__ht__bottomGrader.append(__ht__bottomGrader2ndHalf);
+		}
+
+		__ht__bottomGraderX = $('<div>X</div>');
+		__ht__bottomGraderX.css('position', 'absolute');
+		__ht__bottomGraderX.css('width', '48px');
+		__ht__bottomGraderX.css('top', '0');
+		__ht__bottomGraderX.css('right', '0');
+		__ht__bottomGraderX.css('height', '20px');
+		__ht__bottomGraderX.css('background', '#c75050');
+
+		__ht__bottomGraderX.hover(
+	      function() {
+	        __ht__bottomGraderX.css('background', '#e04343');
+	      }, function() {
+	        __ht__bottomGraderX.css('background', '#c75050');
+	      }
+	    );
+
+		__ht__bottomGraderX.css('line-height', '20px');
+		__ht__bottomGraderX.css('text-align', 'center');
+		__ht__bottomGraderX.css('color', 'white');
+		__ht__bottomGraderX.css('cursor', 'default');
+		__ht__bottomGraderX.click(function() {
+			__ht__changeViewBox(-1);
+	    	__ht__bottomGrader.css('visibility', 'hidden');
+		    if (__ht__action == 'review') {
+		    	__ht__selectedBorder.css('visibility', 'hidden');
+		    }
+		});
+		__ht__bottomGrader.append(__ht__bottomGraderX);
+
+		__ht__loadingDiv = $('<div></div>');
+		__ht__loadingDiv.css('position', 'fixed');
+		__ht__loadingDiv.css('width', '100%');
+		__ht__loadingDiv.css('height', '100%');
+		__ht__loadingDiv.css('left', '0');
+		__ht__loadingDiv.css('top', '0');
+		__ht__loadingDiv.css('background', '#c0c0c0');
+		__ht__loadingDiv.css('z-index', '10043');
+		__ht__loadingDiv.css('opacity', '0.60');
+		__ht__loadingDiv.css('display', 'none');
+		$('body').append(__ht__loadingDiv);
+
+		__ht__loadingDivInfo = $('<div></div>');
+		__ht__loadingDivInfo.css('position', 'relative');
+		__ht__loadingDivInfo.css('width', '200px');
+		__ht__loadingDivInfo.css('height', '200px');
+		__ht__loadingDivInfo.css('background', '#c0c0c0');
+		__ht__loadingDivInfo.css('top', '200px');
+		__ht__loadingDivInfo.css('z-index', '10044');
+		__ht__loadingDivInfo.css('margin', 'auto');
+		__ht__loadingDiv.append(__ht__loadingDivInfo);
+    }
+
+    function __ht__startLoading() {
+    	__ht__loadingDivInfo.css('background', '#c0c0c0');
+    	__ht__loadingDivInfo.html('<img src="http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/img/loading.gif">');
+    	__ht__loadingDiv.fadeIn();
+    }
+
+    function __ht__loadingComplete(msg, noerror) {
+    	if (noerror) {
+    		// __ht__loadingDivInfo.css('background', '#00ff00');
+            __ht__loadingDivInfo.html('<img src="http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/img/loading.gif">');
+    	} else {
+    		// __ht__loadingDivInfo.css('background', '#ff0000');
+    	}
+    	// __ht__loadingDivInfo.html(msg);
+    	__ht__loadingDiv.fadeOut(1000);
+    }
+
+    function __ht__jQueryCheck() {
+        if (typeof jQuery === "undefined") {
+            // No one's loaded it; either load it or do without
+		    var __ht__script = document.createElement("SCRIPT");
+		    __ht__script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
+		    __ht__script.type = 'text/javascript';
+		    document.getElementsByTagName("head")[0].appendChild(__ht__script);
+
+		    // Poll for jQuery to come into existance
+		    var __ht__checkReady = function(callback) {
+		        if (window.jQuery) {
+		            callback(jQuery);
+		        } else {
+		            window.setTimeout(function() { __ht__checkReady(callback); }, 100);
+		        }
+		    };
+
+		    __ht__checkReady(function($) {
+			    __ht__hookwe();
+		    });
+        }
+        else
+        {
+        	__ht__hookwe();
+        }
+    }
+})();
+</script></body>
+</html>

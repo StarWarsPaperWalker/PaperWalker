@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+        <link href="css/bootstrap.css" rel="stylesheet"></link>
+		<link href="css/bootstrap-responsive.css" rel="stylesheet"></link>
+		<link href="css/site.css" rel="stylesheet"></link>
+		
+		<script src="javascript/prettify.js" type="text/javascript"></script>
+		<script src="javascript/angular.min.js" type="text/javascript"></script>
+        <script src="javascript/lodash.js" type="text/javascript"></script>
+		<script src="directives/scDirectives.js" type="text/javascript"></script>
+		<script src="directives/scNav.js" type="text/javascript"></script>
+		<script src="directives/scDocument.js" type="text/javascript"></script>
+	</head>
+	<body onload="prettyPrint()">
+		<div ng-app="scDirectives">
+			<div class="container">
+			
+                <sc-document nav-menu="true">
+                    <article id="overview">
+                        <hgroup>
+							<h1>Изисквания реферати </h1>
+                            <h2>ВАЖНИ ПРАВИЛА</h2>
+                        </hgroup>
+                        
+                        <p>
+							<ol>
+								<li><specific id="prj_alias">Текущият проект</specific> (а.к.а. реферат) по съществото си представлява разработването на самостоятелен проект 
+								(интерактивен, семантичен и стилизиран информационен сайт) по зададена тема, 
+								с използване на съвременни уеб технологии. Той се попълва с достоверна, проверена и 
+								съвременна информация на <specific>български език</specific>. <note>Възможно е да ползвате фрагменти от 
+								финалният ви (изпитен) проект, ако някъде има нужда (и е приложимо) да онагледите дадена концепция
+								и имате подходящ пример от програмният код.</note> (За 7 издание: <a href="docs/interactive_project_REQ_2016_17_KN_7ed_PUBLISHED.pdf" alt="описание от мудъл" target="_new">Виж PDF</a> - само за инфорамция
+								следите информацията дадена на лекции.)</li>
+								
+								<li>Носи <specific id="prj_score">40%</specific> от <specific id="prj_form_score">крайната оценка</specific>.</li>
+								
+								<li>ВСИЧКИ използвани ресурси - статии, програмен код, фигури, книги, видеа, тестове 
+								- <specific id="citation_policy">се цитират по подходящ начин</specific> (с конкретен линк, сочещ дадената статия [1]). Забележка: НЕ Е необходимо да е оцветен цитата,
+								а по-скоро да съдържа всички атрибути на правилното цитиране. <specific>Списък с цитирана литература</specific> се поставя на края, а в текста се посочва номер на източник в квадратни скоби). Например:
+									<pre class="prettyprint"><code>[1] Gal Ben-Haim, "Improve this AngularJS factory to use with socket.io", зададен/публикуван Jan 17 2013,
+	[http://stackoverflow.com/questions/14389049/improve-this-angularjs-factory-to-use-with-socket-io], последно посетен на 2016-04-08.</code><br><code>[2] Lecture notes in 'Computer science'/'Web technologies'  term:2016-17 winter. author Milen Petrov, последно посетен на 2016-11-14.</code></pre>
+								</li>
+								
+								<li><specific>НЕДОПУСТИМИ</specific> са цитати от вида: 
+									<pre class="prettyprint"><code>[1] google.com. </code><br><code>[2] stackoverflow.com.</code></pre> 
+									
+									За да видите как се цитира коректно статия от stackoverflow или друг сайт - виж предишната точка.
+								</li>
+								
+								<li>ИЗПОЛЗВАЙТЕ <strong>ресурси САМО на АНГЛИЙСКИ</strong>. Ресурси на български език – НЕ СЕ допускат - независимо, че някъде в линковете може да са зададени ресурси и на български език - станало е неволно). Директно копиране на бг текст от wikipedia/бг книги и статии НЕ СЕ ДОПУСКА и ще намали значително оценката ви!!);  </li>
+								
+								<li>Препоръчителен обем на реферата <specific id="text_volume">15 страници</specific></strong>. Забележка: В този обем се включва и обемът текст, който е в ГУГЪЛ-таблицата, както и екранни снимки, фигури, таблици и програмен код - в разумен размер.</li>
+								
+								<li>В този обем освен текст може да се приспаднат и до няколко фигури/картинки и няколко програмни фрагмента/конфигурации. Не може целият реферат да е само картинки или само програмен код (трябва да се използват умерено - в зависимост от темата).</li>
+								<li>От <strong>обема може да се приспадне и от 1 до 2 страници текст от <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCz4XmqCMIJeM8DjwTDaFB4pyrA4qQ9AwCqsVXV8GtL-dcWA/viewform?c=0&w=1" target="_new">тестовите въпроси</a></strong> и <strong>от 1 до 2 страници от заданието</strong> (гугъл-докса, където коректно трябва да попълните всички колони на втора версия на реферата).</li>
+								<li><specific>Всички фигури</specific>, програмен код, диаграми, таблици, екранни снимки да са правилно (семантично) вмъкнати, <specific>номерирани, озаглавени, четими и цитирани</specific> в текста на реферата (за пример виж. фиг. 1).</li>
+								
+							</ol>
+						</p>
+						<p>
+							<figure style="text-align: center;">
+								<img src="img/01_01_scope.png" alt="Puffin screenshot v0.3" width="500">
+								<figcaption id="fig1">Фигура 1. Екранна снимка от системата за реферати.</figcaption>
+							</figure>
+						</p>
+                    </article>
+                    <article id="phaseOne">
+                        <hgroup>
+                            <h2>I. Избор на тема (етап&nbsp;1)</h2>
+                        </hgroup>
+                        <p>Стартиране на кампанията за <specific>избор на реферати</specific>: <deadline>12.04.2017г. </deadline>. Регистрирайте се в системата puffin(v3) - като използвате ф.н.,  валиден имейл и парола, която помните, т.к. няма автоматичен ресет на парола (ако се наложи ми пишете) - срок 1 (препоръчителен срок една седмица) до <deadline>19.04.2017г. </deadline> / <scores>+ 1т.</scores> връзка: 8th издание. 
+						Заб.: В текущото 8+ издание ще се използва се система за записване (puffin/v.3/2017-04). В google-docs  линка от системата се гледат примерни ресурси за всяка от темите. За темата, която сте избрали може да проучите собствени ресурси на английски (всеки ползван ресурс/линк се цитира).
+						Попълвате информация в реда на гугъл докс, която ви е темата, като гледате сходни теми какво попълват - за да няма дублиране на различни теми с еднакъв материал, както и близки теми (например част 1 и част 2) - да не се припокриват.
+						Непопълването своевременно на информацията И в гугъл докс ще доведе до значително намаляне на оценката ви.
+						</p>
+						<p>Ако желаете - възможно е да сменяте темата си докато тече този срок със съответно друга свободна такава. Препоръчителни са последните теми, т.к. са по-нови.</p>
+                    </article>
+                    <article id="phaseTwo">
+                        <hgroup>
+                            <h2>II. Първа версия на реферата (етап&nbsp;2)</h2>
+                        </hgroup>
+						<p>Качване <strong>по указаният начин (в мудъл)</strong> на файл с <specific>ПЪРВА (анонимна) версия на реферата</specific> (fn9999_v1.zip) според  указаният формат - срок 2 до <deadline>30.04.2017г.</deadline> / <scores>+ 1т.</scores>  (8_ed). <specific>Спазването на този срок</specific> е задължителено! Ако не е завършен проекта го качете, за да може да ви бъде направена рецензия. В началният абзац може да напишете какво смятате да довършите за финалната версия. Въпреки това рецензията ще бъде на основание това, което сте качили в системата и сте попълнили в гугъл докс.
+						</p>
+                    </article>
+                    <article id="phaseThree">
+                        <hgroup>
+                            <h2>III. Писане на рецензия (етап&nbsp;3)</h2>
+                        </hgroup>
+                        <p>Служебно получавате по пощата (която сте обявили в списъка с темите или системата-ако се ползва такава.Заб. за версия 7 на курса се ползва!) - на случаен принцип тема/реферат за оценяване на ваш колега и пишете рецензия** - в указан срок - срок 3 до <deadline>7.05.2017г. (?)</deadline> / <scores>+ 1т.</scores>  (7_ed) - непотвърден, може да се прескочи ИЛИ използва СИСТЕМА за оценяване на рефератите). Добре е да не чакате крайният срок, а по-бързо да върнете обратна връзка, за да има колегата ви време да си оправи последната версия на реферата. Оценява се вашата рецензия (за което получавате точки), а не първата версия на реферата. Оценява се и финалната версия на проекта.
+						</p>
+                    </article>
+                    <article id="phaseFour">
+                        <hgroup>
+                            <h2>IV. Представяне на реферата (етап&nbsp;4)</h2>
+                        </hgroup>
+                        <p>Представяне на реферата (fn9999_presentation.pptx) – срок - по график  + публикувана покана в мудъл форума и фб няколко дни преди представянето  (fn9999_invite.png) според  указаният формат - 
+						срок  до <strike> (<deadline>?.05,? - ?.06.2017г. </deadline> последните 4 или 5 лекции) </strike> / <scores>+ 1т.</scores>  (презентациите - в powerpoint/ppt са на български-евентуално ще е 1 споделена презентация за учебен час).</p>
+                    </article>
+                    <article id="phaseFive">
+                        <hgroup>
+							<h2>V. Получаване на рецензия и разработване на крайна версия (етап&nbsp;5)</h2>
+						</hgroup>
+                          <p>Получаване по пощата служебно на обратна връзка / рецензията за първа версия на реферата (ако е предадена такава) и писане / качване <strong>по указаният начин (в мудъл)</strong> на ВТОРА (финална) ВЕРСИЯ на реферата (fn9999_v2.zip) според  указаният формат - срок 5 до <deadline>15.05.2017г.</deadline> / <scores>+ 1т.</scores>  (8_ed).
+						</p>
+                    </article>
+					 <article id="phaseSix">
+                        <hgroup>
+							<h2>VI. Попълване на финална форма с въпроси (етап&nbsp;6)</h2>
+						</hgroup>
+                           <p>Попълване на формата с 10 примерни въпроса  <strong><a href="https://docs.google.com/formfs/d/1FfafincwNH1qkuEiuwVcVmOU1wenPXM67uwxV_KZJQc/viewform?c=0&w=1" target="_new">по указаният начин</a>
+						   </strong> въпроса , свързани с разработеният от вас реферат <deadline>15.05.2017г.</deadline> - въпросите са въпрос с четири отговора и 1 верен  - за всеки въпрос попълнете отделно формата  / <scores>+ 1т.</scores>  (8_ed).
+						</p>
+                    </article>
+					 <article id="resource_references">
+						<hgroup>
+							<h2>Цитирана литература</h2>
+						</hgroup>
+										
+						<reference>
+						<pre>[1] Милен Петров, "Изисквания за разработване на интерактивен проект", 7 издание, публикуван, Курс по Уеб технологии, 2016/17 (зимен семестър), Публикувано на: 2016-11-20.</pre>
+						<pre>[2] "Курс по уеб технологии 2016/17 (зимен семестър)" в Мудъл, 7 издание, публикуван 2016-10-01, <url:https://learn.fmi.uni-sofia.bg/course/view.php?id=2688>, последно посетен на: 2016-11-23.</pre>
+						</reference>
+					</article>
+					<article id="resource_references">
+						<hgroup>
+							<h2>Списък с примерен програмен код</h2>
+						</hgroup>
+						<li>Код 1. Заглавие <src/example1/demo1.php></li>
+						<li>Код 2. Заглавие <хипер връзка></li>
+					</article>
+					<article id="resource_references">
+						<hgroup>
+							<h2>Списък с фигури</h2>
+						</hgroup>
+						<ul>
+							<li><a href="#">Фигура 1.</a> Екранна снимка от системата за реферати. </li>
+							<li>Фигура 2. Заглавие <хипер връзка></li>
+						</ul>
+					</article>
+					<article id="resource_references">
+						<hgroup>
+							<h2>Списък с таблици</h2>
+						</hgroup>
+						<ul>
+							<li>Таблица 1. Заглавие <src/example1/demo1.php></li>
+							<li>Таблица 2. Заглавие <хипер връзка></li>
+						</ul>
+						<hgroup>
+							<h2>Структура на файловете/архива: 9999_v1.zip</h2>
+						</hgroup>
+						<p> Забележка:  Приложение: примерна структура на директории (задължителни css, javascript, img) и име на html да е http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/referat/8888_1_0/index.php?action=view&back=review) </p>
+						<pre>
+						 
+	│   http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/referat/8888_1_0/index.php?action=view&back=review
+	│
+	├───css
+	│       bootstrap-responsive.css
+	│       bootstrap.css
+	│       site.css
+	│
+	├───directives
+	│       scDirectives.js
+	│       scDocument.js
+	│       scNav.js
+	│
+	├───docs
+	│       interactive_project_REQ_2016_17_KN_7ed_PUBLISHED.pdf
+	│
+	├───img
+	│       01_01_scope.png
+	│
+	├───javascript
+	│       angular.min.js
+	│       angular.min.js.map
+	│       lodash.js
+	│       prettify.js
+	│
+	└───src
+
+						</pre>
+					</article>
+					
+                </sc-document>
+            </div>
+        </div>
+    </body>
+</html>

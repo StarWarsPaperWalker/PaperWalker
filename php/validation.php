@@ -4,7 +4,7 @@
     $servername = "localhost";
     $db_username = "root";
     $db_password = "";
-    $dbname = "star_wars";
+    $dbname = "puffin";
 
     function check_input($input) {
         $input = trim($input);
@@ -24,10 +24,11 @@
         
         $username = check_input($_POST["username"]); 
         $password = check_input($_POST["password"]); 
+        $hashed_password = md5(password);
         
-        $result = $conn->prepare("SELECT username, password FROM Users WHERE username = :username AND password = :password");
+        $result = $conn->prepare("SELECT username, password FROM user WHERE username = :username AND password = :password");
         $result->bindParam(':username', $username);
-        $result->bindParam(':password', $password);
+        $result->bindParam(':password', $hashed_password);
         $result->execute();
             
         if($result->rowCount() > 0 ) {

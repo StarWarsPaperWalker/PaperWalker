@@ -1,0 +1,1152 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Styles Start -->
+        <meta charset="utf-8">
+        <title>Реферат</title>
+        <link type="text/css" href="css/navigation.css" rel="stylesheet">
+        <link type="text/css" href="css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/prism.css">
+        <script src="javascript/prism.js"></script>
+        <!-- Styles End -->
+    </head>
+    <body>
+        <!-- Navigation Start -->
+        <div class="navigation">
+            <ul>
+                <li><p>Съдържаниe</p></li>
+                <li>
+                    <a class="dropdown" href="#intro"><img src="img/cake_item.png" alt="cake_item" height="16" width="16"><span class="item">Какво е CakePHP ?</span></a>
+                    <ul>
+                        <li><a href="#fest"><img src="img/cake_sub.png" alt="cake_sub" height="12" width="12"><span class="item">Cake Fest</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="dropdown" href="#convention"><img src="img/cake_item.png" alt="cake_item" height="16" width="16"><span class="item">Конвенции</span></a>
+                    <ul>
+                        <li><a href="#controller"><img src="img/cake_sub.png" alt="cake_sub" height="12" width="12"><span class="item">Контролер</span></a></li>
+                        <li><a href="#file"><img src="img/cake_sub.png" alt="cake_sub" height="12" width="12"><span class="item">Класове / файлове</span></a></li>
+                        <li><a href="#model"><img src="img/cake_sub.png" alt="cake_sub" height="12" width="12"><span class="item">Модел / база данни</span></a></li>
+                        <li><a href="#view"><img src="img/cake_sub.png" alt="cake_sub" height="12" width="12"><span class="item">Изглед</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="dropdown" href="#features"><img src="img/cake_item.png" alt="cake_item" height="16" width="16"><span class="item">Характеристики</span></a>
+                    <ul>
+                        <li>
+                            <a href="#mvc">
+                                <div>
+                                    <img src="img/cake_sub.png" alt="cake_sub" height="12" width="12">
+                                    <span class="subitem">MVC слоеве</span>
+                                    <span class="choice" onclick="window.location.href='#mlayer'">M</span>
+                                    <span class="choice" onclick="window.location.href='#vlayer'">V</span>
+                                    <span class="choice" onclick="window.location.href='#clayer'">C</span>
+                                    <span class="choice" onclick="window.location.href='#request'">R</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#cache">
+                                <div>
+                                    <img src="img/cake_sub.png" alt="cake_sub" height="12" width="12">
+                                    <span class="subitem">Кеширане</span>
+                                    <span class="choice" onclick="window.location.href='#configure'">&#9874;</span>
+                                    <span class="choice" onclick="window.location.href='#write'">&#9998;</span>
+                                    <span class="choice" onclick="window.location.href='#read'">&#8476;</span>
+                                    <span class="choice" onclick="window.location.href='#delete'">&#9747;</span>
+                                    <span class="choice" onclick="window.location.href='#clear'">&#9938;</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#bake">
+                                <div>
+                                    <img src="img/cake_sub.png" alt="cake_sub" height="12" width="12">
+                                    <span class="subitem">Bake конзола</span>
+                                    <span class="choice" onclick="window.location.href='#generate'">&#9881;</span>
+                                    <span class="choice" onclick="window.location.href='#extend'">&#8734;</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#phpunit">
+                                <div>
+                                    <img src="img/cake_sub.png" alt="cake_sub" height="12" width="12">
+                                    <span class="subitem">Тестване</span>
+                                    <span class="choice" onclick="window.location.href='#test'">&#9888;</span>
+                                    <span class="choice" onclick="window.location.href='#sample'">E</span>
+                                    <span class="choice" onclick="window.location.href='#other'">O</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#app"><img src="img/cake_item.png" alt="cake_item" height="16" width="16"><span class="item">Примерно приложение</span></a></li>
+                <li>
+                    <a class="dropdown" href="#examples"><img src="img/cake_item.png" alt="cake_item" height="16" width="16"><span class="item">Списък с примери</span></a>
+                    <ul>
+                        <li><a href="#figures"><img src="img/cake_sub.png" alt="cake_sub" height="12" width="12"><span class="item">Фигури</span></a></li>
+                        <li><a href="#codes"><img src="img/cake_sub.png" alt="cake_sub" height="12" width="12"><span class="item">Програмен код</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="#sources"><img src="img/cake_item.png" alt="cake_item" height="16" width="16"><span class="item">Източници</span></a></li>
+                <span class="note"><i><b>Забележка:</b> За опциите в кръгчетата кликнете два пъти!</i></span>
+            </ul>
+        </div>
+        <!-- Navigation End -->
+        <!-- Main Start -->
+        <div class="main">
+            <h1><img src="img/cake_title.png" alt="cake_title" height="48" width="48"><span>Cake</span>PHP</h1>
+            <!-- Intro Start -->
+            <!-- Overview Start -->
+            <h2 id="intro">Какво е CakePHP ?</h2>
+                <p><i><b>CakePHP</b></i> е уеб фреймуърк (<i>framework - т.е. универсална и многократно употребяема софтуерна платформа, която се използва, за да се разработват приложения, продукти и софтуерни решения</i>) с отворен код (<i>open source - т.е. изходният код е свободно достъпен с лиценз, предоставящ права за промяна и разпространение на всеки и за всякакви цели</i>). Както подсказва и името му, той е написан на <i>PHP</i>, следва <i>MVC</i> (<i>Model-View-Controller или Модел-Изглед-Контролер</i>) подхода на разработка и е изграден на базата на концепциите, които използва <i>Ruby on Rails</i>. Разпространява се под лиценза на <i>MIT</i> (<i>Massachusetts Institute of Technology</i>).</p>  
+                <p>Фреймуъркът използва добре познати концепции в софтуерното инженерство и модели в софтуерния дизайн като използване на конвенции вместо конфигурации (<i>convention-over-configuration</i>), вече споменатото <i>MVC</i>, активно записване (<i>active record - съхраняване на данни в релационни бази данни</i>), свързване на данните с асоциация (<i>association data mapping - създаване на нова таблица в базата данни, която съдържа външните ключове на таблиците, които са свързани чрез асоциацията</i>) и преден контролер (<i>front controller - контролер, който управлява всички заявки в един уебсайт, с цел постигане на гъвкавост и преизползваемост без излишен код</i>).</p>
+                <p><i>CakePHP</i> е конструиран по такъв начин, че да прави изпълняването на типичните задачи при уеб разработката изключително лесно и просто. Чрез предоставяне на набор инструменти, съдържащ всичко необходимо, за да започнете работа с фреймуърка, отделните му части работят добре както заедно, така и отделно една от друга. В крайна сметка, основната цел на <i>CakePHP</i> е да бъде един добре структуриран <i>PHP</i> фреймуърк, който да позволи на всички потребители бързо да създават устойчиви уеб приложения без да се притесняват от загуба на гъвкавост.</p>
+            <!-- Overview End -->
+            <!-- Fest Start -->
+                <h3 id="fest">Cake Fest</h3>
+                    <p id="figure1" class="code"><b>Фигура 1.</b> Мото на Cake Fest конференцията (източник: [<a href="#source9">9</a>])</p>
+                    <figure>
+                        <img src="img/cake_fest.png" alt="cake_fest">
+                    </figure>
+                    <p><i>Cake Fest</i> е ежегодна конференция, посветена на <i>CakePHP</i>, която се провежда всяка пролет. Тя събира на едно място всички, които са избрали фреймуърка като своето средство за разработка, възползвайки се от хилядите плъгини и <i>MVC</i> модела, които позволяват създаването на мощни и мащабируеми уеб приложения.</p>
+                    <p>Конференцията се провежда в четири дни като първите два са с т.нар. работилници (<i>workshops</i>), където не само работещите фреймуърка, но и напълно начинаещите могат да се запознаят с последните версии и иновации и да си поговорят и научат нещо ново както за <i>CakePHP</i>, така и за разработка на уеб приложения като цяло от самите разработчици на фреймуърка.</p>
+                    <p>Третият и четвъртият ден представляват самите презентации, дискусии и разговори относно технологии, свързани с <i>CakePHP</i>. Всяка година предлага различни ключови говорители, както и гост-говорители, които поднасят информацията по начин, подходящ за всички, интересуващи се от фреймуърка.</p>
+            <!-- Fest End -->
+            <!-- Intro End -->
+            <!-- Conventions Start -->
+            <h2 id="convention">Конвенции</h2>
+                <p>Конвенциите при създаването на проекти с много код винаги са били предпочитани от програмистите, тъй като спестяват много време в целия процес на разработка на софтуера. Следването на конвенции не само спестява досадното четене на конфигурационни файлове, но и позволява на тепърва включващите се към проекта разработчици много лесно да навлязат в процеса и да се адаптират към работата.</p>
+                <p><i>CakePHP</i> не е изключение от това правило и съответно следва няколко конвенции за своите различни компоненти:</p>
+            <!-- Controllers Start -->
+                <h3 id="controller">Конвенции за контролера</h3>
+                    <p>Имената на класовете, свързани с контролера, са в множествено число, <i>CamelCased</i> и завършват с думата <i>Controller</i>. Примери за спазващи конвенцията имена са <code class="language-php">UsersController</code> и <code class="language-php">ArticleCategoriesController</code>.</p>
+                    <p>Публичните методи в контролерите често са ясно различими при отваряне на приложението в уеб браузър. Така например <code class="language-php">/users/view</code> в линка е свързан с <code class="language-php">view()</code> метода на <code class="language-php">UsersController</code>. Защитените (<i>protected</i>) и частните (<i>private</i>) методи не могат да бъдат достъпени директно.</p>
+                    <p>Относно <i>URL</i> спазваната конвенция е, че името на класа е начинът, по който той се появява и в линка, визуализиращ се в браузъра, а в случай, че той е повече от една дума, всяка от тях е разделена с тире. Пример за това е как достъпването на метод чрез командата <code class="language-php">ArticleCategoriesController::viewAll()</code> в браузъра се появява като <code class="language-php">/article-categories/view-all</code>.</p>
+                    <p>В случай, че създаваме връзки с помощта на <code class="language-php">this->Html->link()</code>, можем да използваме следната конвенция:</p>
+                    <p id="code1" class="code"><b>Програмен код 1.</b> Конвенция при създаване на връзки с this->Html->link() (източник: [<a href="#source4">4</a>])</p>
+                    <pre>
+                        <code class="language-php">
+                            $this->Html->link('link-title', [
+                                'prefix' => 'MyPrefix' //CamelCased
+                                'plugin' => 'MyPlugin', //CamelCased
+                                'controller' => 'ControllerName', // CamelCased
+                                'action' => 'actionName' // camelBacked
+                            ]
+                        </code>
+                    </pre>
+            <!-- Controllers End -->
+            <!-- Files Start -->
+                <h3 id="file">Конвенции за класовете и файловете</h3>
+                    <p>Общоприето е имената на файловете да съвпадат с имената на отговарящите ми класове. Ето и няколко примера:</p>
+                    <ul>
+                        <li>Компонентният клас <code class="language-php">MyHandyComponent</code> ще се намира във файл <code class="language-php">MyHandyComponent.php</code></li>
+                        <li>Обектният клас <code class="language-php">OptionValue</code> ще се намира във файл <code class="language-php">OptionValue.php</code></li>
+                        <li>Табличният клас <code class="language-php">OptionValuesTable</code> ще се намира във файл <code class="language-php">OptionValuesTable.php</code></li>
+                        <li>Изгледният клас <code class="language-php">SuperSimpleView</code> ще се намира във файл <code class="language-php">SuperSimpleView.php</code></li>
+                        <li>Помощният клас <code class="language-php">BestEverHelper</code> ще се намира във файл <code class="language-php">BestEverHelper.php</code></li>
+                    </ul>
+            <!-- Files End -->
+            <!-- Models Start -->
+                <h3 id="model">Конвенции за модела и базата данни</h3>
+                    <p>Аналогично на контролерите, имената на табличните класове са в множествено число, <i>CamelCased</i> и завършват на <i>Table</i>. Примери за конвенционални имена на модели са <code class="language-php">UsersTable</code>, <code class="language-php">ArticleCategoriesTable</code> и <code class="language-php">UserFavouritePagesTable</code>.</p>
+                    <p>Имената на таблиците, отговарящи на моделите, са в множествено число и при повече думи са разделени с долна черта. Например таблиците, които стоят под моделите, споменати преди малко, биха носели имената <code class="language-php">users</code>, <code class="language-php">article_categories</code> и <code class="language-php">user_favourite_pages</code>.</p>
+                    <p>Аналогично се кръщават и имената на полетата с една или повече думи: <code class="language-php">username</code>, <code class="language-php">first_name</code> и т.н.</p>
+                    <p>Външните ключове (<i>foreign keys</i>) при <i>1:1</i>, <i>N:1</i>, <i>1:N</i> и <i>N:M</i> връзките се разпознават по това, че се кръщават по същия начин, както е името на свързаната таблица (в единствено число), последвано от <code class="language-php">_id</code>. Например ако моделите <code class="language-php">Users</code> и <code class="language-php">Articles</code> са във връзка <i>1:N</i>, то таблицата <code class="language-php">articles</code> ще реферира към таблицата <code class="language-php">users</code> чрез външния ключ <code class="language-php">user_id</code>. За таблици от типа <code class="language-php">article_categories</code>, където имаме повече от една дума, ключът би бил <code class="language-php">article_category_id</code>.</p>
+                    <p>Свързващи таблици при <i>N:M</i> връзки на моделите се именуват според таблиците, които свързват, подредени по азбучен ред. Един такъв пример е изборът на <code class="language-php">articles_tags</code> за име на подобна таблица вместо <code class="language-php">tags_articles</code>.</p>
+            <!-- Models End -->
+            <!-- Views Start -->
+                <h3 id="view">Конвенции за изгледа</h3>
+                    <p>Шаблонните файлове на изгледите се именуват според функциите на контролера, които визуализират, като при повече думи те са разделени с долна черта. Например <code class="language-php">viewAll()</code> методът на <code class="language-php">ArticlesController</code> класа ще търси за шаблон на изгледа в <code class="language-php">src/Template/Articles/view_all.ctp</code>.</p>
+                    <p>Стандартният шаблон има следния вид: <code class="language-php">src/Template/Controller/underscored_function_name.ctp</code>.</p>
+                    <p>Наименуването на отделните части от приложението чрез използването на подобни конвенции ни дава необходимата функционалност, спестявайки ни нуждата да търсим нужните ни връзки в тонове документация. Ето и един завършен пример, който показва ясно придобитата йерархия:</p>
+                    <ul>
+                        <li>Таблица в базата данни: <code class="language-php">articles</code></li>
+                        <li>Табличен клас: <code class="language-php">ArticlesTable</code>, намиращ се в <code class="language-php">src/Model/Table/ArticlesTable.php</code></li>
+                        <li>Обектен клас: <code class="language-php">Article</code>, намиращ се в <code class="language-php">src/Model/Entity/Article.php</code></li>
+                        <li>Контролиращ клас: <code class="language-php">ArticlesController</code>, намиращ се в <code class="language-php">src/Controller/ArticlesController.php</code></li>
+                        <li>Шаблона на изгледа, намиращ се в <code class="language-php">src/Template/Articles/index.ctp</code></li>
+                    </ul>
+            <!-- Views End -->
+                <p>Тази конвенция ясно ни показва, че една заявка към <code class="language-php">http://example.com/articles/</code> е свързана с извикването на <code class="language-php">index()</code> метода на класа <code class="language-php">ArticlesController</code>, където <code class="language-php">Articles</code> моделът, който отговаря на <code class="language-php">articles</code> таблицата от базата данни, е достъпен автомaтично и се визуализира до даден файл. Всичко, което се изисква от нас, за да създадем тези връзки, е просто да създадем класовете и файловете, които така или иначе ще са ни нужни при разработката. Така чрез конвенциите на <i>CakePHP</i>, макар и да отнемат известно време за научаване и свикване, можем лесно да създадем универсална структура на приложението, която значително улеснява работата с какъвто и да е проект.</p>
+            <!-- Conventions End -->
+            <!-- Features Start -->
+            <h2 id="features">Характеристики</h2>
+                <p><i>CakePHP</i> има няколко важни особености, които дават много добра представа за това какво предлага той и въпреки това са само малка част от нещата, от които можете да се възползвате, ако решите да се доверите на фреймуърка и да създадете следващото страхотно приложение.</p>
+            <!-- MVC Start -->
+                <h3 id="mvc">MVC слоеве</h3>
+            <!-- MLayer Start -->
+                    <h4 id="mlayer">Слой на модела</h4>
+                        <p>Този слой представлява частта от приложението, която всъщност имплементира бизнес логиката. Тя е отговорна за извличането на данните и преобразуването им в основните смислови части на приложението. Това включва обработка, валидиране, асоцииране и други задачи, свързани с управлението на данните.</p>
+                        <p>Нека вземем за пример една социална мрежа. В този случай слоят на модела би се грижел за задачи от типа на: запаметяване на потребителските данни, запазване на връзките с приятели, съхраняване и извличане на потребителски снимки, намиране на предложения за нови приятели и т.н. Моделите на тези обекти можем да ги обобщим като <code class="language-php">Friend</code> (<i>Приятел</i>), <code class="language-php">User</code> (<i>Потребител</i>), <code class="language-php">Comment</code> (<i>Коментар</i>) или <code class="language-php">Photo</code> (<i>Снимка</i>). Ако искаме да заредим данни от таблицата <code class="language-php">users</code>, например, бихме използвали нещо подобно:</p>
+                        <p id="code2" class="code"><b>Програмен код 2.</b> Зареждане на данни от таблицата Users (източник: [<a href="#source3">3</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                use Cake\ORM\TableRegistry;
+
+                                $users = TableRegistry::get('Users');
+                                $query = $users->find();
+                                foreach ($query as $row) {
+                                    echo $row->username;
+                                }
+                            </code>
+                        </pre>
+                        <p>Сигурно забелязвате, че не ни беше нужно да пишем никакъв код, за да работим с данните. Разчитайки на конвенциите, които коментирахме малко по-нагоре, <i>CakePHP</i> използва стандартни класове за таблиците и обектните класове, които все още не са дефинирани.</p>
+                        <p>Ако пък искаме да добавим нов потребител, да го запазим и да го валидираме, бихме написали нещо като следното:</p>
+                        <p id="code3" class="code"><b>Програмен код 3.</b> Добавяне, запазване и валидиране на нов потребител (източник: [<a href="#source3">3</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                use Cake\ORM\TableRegistry;
+
+                                $users = TableRegistry::get('Users');
+                                $user = $users->newEntity(['email' => 'mark@example.com']);
+                                $users->save($user);
+                            </code>
+                        </pre>
+            <!-- MLayer End -->
+            <!-- VLayer Start -->
+                    <h4 id="vlayer">Слой на изгледа</h4>
+                        <p>Този слой се грижи за визуализирането на вече моделираните данни. Отделена от обектните модели, тя е отговорна за използването на наличната информация, за да се създадат всякакви графични интерфейси, от които приложението ни може да се нуждае.</p>
+                        <p>Например слоят може да използва данни от моделите, за да генерира <i>HTML</i> шаблон или <i>XML</i> форматиран резултат, който ги съдържа и позволява на останалите да ги използват:</p>
+                        <p id="code4" class="code"><b>Програмен код 4.</b> Генериране на данни в HTML шаблон или XML форматиран резултат (източник: [<a href="#source3">3</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                // В такъв шаблонен изглед се генерира "елемент" за всеки потребител.
+                                &lt;?php foreach ($users as $user): ?&gt;
+                                    &lt;li class="user"&gt;
+                                        &lt;?= $this->element('user', ['user' => $user]) ?&gt;
+                                    &lt;/li&gt;
+                                &lt;?php endforeach; ?&gt;
+                            </code>
+                        </pre>
+                        <p>Слоят на изгледа предлага и няколко разширения като шаблони, елементи и клетки, които позволяват преизползването на нашата презентационна логика.</p>
+                        <p>Той освен това не е и ограничен само до <i>HTML</i> или текстова визуализация на данните. Слоят може да се използва и за представяне в типични формати като <i>JSON</i>, <i>XML</i> или, с помощта на подходяща допълнителна архитектура, всеки друг формат, от който се нуждаем, като например <i>CSV</i>.</p>
+            <!-- VLayer End -->
+            <!-- CLayer Start -->
+                    <h4 id="clayer">Слой на контролера</h4>
+                        <p>Слоят на контролера управлява заявките на потребителя. Той е отговорен за създаване на отговор с помощта на останалите два слоя.</p>
+                        <p>Контролерът може да се разглежда като мениджър, който осигурява правилното разпределение на всички ресурси, нужни за изпълнението на една задача, между работниците. Той изчаква заявления от клиентите, проверява тяхната валидност според зададените правила за оторизация или автентикация, изпраща работата по извличането или обработката на данните до слоя на модела, избира типа на визуализирани данни, които отговарят на изискванията на клиента, и най-накрая изпраща работата по процеса на генериране към слоя на изгледа.</p>
+                        <p>Ето и един пример за подобен контролер при регистрация на потребител:</p>
+                        <p id="code5" class="code"><b>Програмен код 5.</b> Контролер за регистрация на потребител (източник: [<a href="#source3">3</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                public function add()
+                                {
+                                    $user = $this->Users->newEntity();
+                                    if ($this->request->is('post')) {
+                                        $user = $this->Users->patchEntity($user, $this->request->getData());
+                                        if ($this->Users->save($user, ['validate' => 'registration'])) {
+                                            $this->Flash->success(__('You are now registered.'));
+                                        } else {
+                                            $this->Flash->error(__('There were some problems.'));
+                                        }
+                                    }
+                                    $this->set('user', $user);
+                                }
+                            </code>
+                        </pre>
+                        <p>Тук може би също забелязвате, че никъде не сме генерирали изглед изрично. Конвенциите, които <i>CakePHP</i> използва, отново се грижат за избора на правилния изглед и генерирането му с помощта на данни, които сме подготвили, използвайки метода <code class="language-php">set()</code>.</p>
+            <!-- CLayer End -->
+            <!-- Request Start -->
+                    <h4 id="request">Обработка на заявката</h4>
+                        <p>Ето и как се извършва обработката на една заявка в CakePHP с помощта на разгледаните вече слоеве:</p>
+                        <p id="figure2" class="code"><b>Фигура 2.</b> Обработка на заявка (източник: [<a href="#source3">3</a>])</p>
+                        <figure>
+                            <img src="img/cake_request.png" alt="cake_request">
+                        </figure>
+                        <p>Типичната обработка на заявката започва когато потребителят иска да отвори страница или ресурс в приложението. Разглеждайки го на високо ниво, заявката минава през следните етапи:</p>
+                        <ul>
+                            <li>Правилата за презаписване на уебсайта препращат заявката към <code class="language-php">webroot/index.php</code>.</li>
+                            <li>Приложението се зарежда и се свързва с <i>HttpServer</i>.</li>
+                            <li>Инициализира се междинният софтуер, осъществяващ връзката (<i>middleware</i>).</li>
+                            <li>Заявка и отговор се предават през междинния софтуер, който приложението използва. Обикновено това включва и хващане на грешки или маршрутизиране.</li>
+                            <li>Ако междинният софтуер не върне отговор и заявката съдържа информация за маршрутизиране, се избират контролер и следващо действие.</li>
+                            <li>Извиква се действието на контролера и той си взаимодейства с нужните модели и компоненти.</li>
+                            <li>Контролерът изпраща работата по създаването на отговор на изгледа, за да генерира изхода, получен от данните, идващи от модела.</li>
+                            <li>Изгледът използва помощници и клетки, за да генерира тялото и заглавната част на отговора.</li>
+                            <li>Отговорът се изпраща обратно през междинния софтуер.</li>
+                            <li><i>HttpServer</i> пуска отговора към уеб сървъра.</li>
+                        </ul>
+            <!-- Request End -->
+            <!-- MVC End -->
+            <!-- Cache Start -->
+                <h3 id="cache">Кеширане</h3>
+                    <p>Кеширането често се използва, за да се намали времето, което отнема създаването или четенето от други ресурси. Освен това и намалява "цената" (<i>cost</i>), която се плаща при четене от "скъпи" (<i>expensive - от гледна точка на време и скорост, разбира се</i>) източници. В кеша могат да се съхраняват резултати от "скъпи" заявки или достъп до отдалечени уеб услуги, които не се променят често. Веднъж попаднали там, повторното четене на съхранените ресурси е много по-"евтино", отколкото достъпването им от отдалечени места.</p>
+                    <p>Кеширането в <i>CakePHP</i> се осъществява основно чрез класа <code class="language-php">Cache</code>. Той предоставя набор от статични методи, които пък изграждат едно <i>API</i> (<i>Application Programming Interface или програмен интерфейс</i>) за управление на всички различни типове имплементации на кеширането. Фреймуъркът идва с няколко вградени машини за кеширане (<i>cache engines</i>) и също така предлага и лесна за използване система за създаване на собствени кеширащи системи. Която и машина да изберем, приложението ни държи постоянна връзка с<code class="language-php"> Cake\Cache\Cache</code>. Така можем да сменяме начините на кеширане с разрастването на приложението. Вградените машини в <i>CakePHP</i> са следните:</p>
+                    <ul>
+                        <li><code class="language-php">FileCache</code> - прост кеш, който използва локалните файлове. Той е най-бавната машина и не предлага много възможности за атомарни операции (<i>atomic operations - операции, които или се изпълняват целите, или въобще не се изпълняват</i>). Въпреки това дисковото пространство е доста евтино и съхраняването на големи обекти или елементи, които не се записват често, работи добре с файловете.</li>
+                        <li><code class="language-php">ApcCache</code> - използва <i>APCu</i> разширението на <i>PHP</i>. То използва споделена памет на уеб сървъра, за да съхранява обекти. Това я прави много бърза и способна да изпълнява атомарни операции, свързани с четенето и записването.</li>
+                        <li><code class="language-php">Wincache</code> - използва <i>Wincache</i> разширението. То е подобно на <i>APC</i> като възможности и производителност, но е оптимизирано за <i>Windows</i> и <i>IIS</i>.</li>
+                        <li><code class="language-php">XcacheEngine</code> - този кеш също е разширение на <i>PHP</i> и е много подобен на <i>APC</i>.</li>
+                        <li><code class="language-php">MemcachedEngine</code> - използва <i>Memcached</i> разширението.</li>
+                        <li><code class="language-php">RedisEngine</code> - използва разширението <i>phpredis</i>. То предоставя бърза и устойчива система за кеширане, която наподобява <i>Memcached</i>, както и възможности за атомарни операции.</li>
+                    </ul>
+                    <p>Ето и част от основните методи на <code class="language-php">Cache</code> класа, които се използват и улесняват кеширането:</p>
+            <!-- Configure Start -->
+                    <h4 id="configure">Конфигуриране на класа</h4>
+                        <p><code class="language-php">Cake\Cache\Cache::config($key, $config = null)</code></p>
+                        <p>Стандартното място за конфигурация на кеширащия клас е <code class="language-php">config/app.php</code>. Можем да конфигурираме колкото искаме такива и да смесваме различни машини за кеширане. <i>CakePHP</i> използва две вътрешни конфигурации: <code class="language-php">_cake_core_</code> за съхранение на файлови карти и резултати от файловете, свързани с интернационализация и локализация, и <code class="language-php">_cake_model_</code> за съхранение на описания чрез схеми на моделите на приложението. Освен това, използването на множество конфигурации ни позволява и да променяме мястото ни на съхранение по желание. Ето един пример за конфигуриране във файла <code class="language-php">config/app.php</code>:</p>
+                        <p id="code6" class="code"><b>Програмен код 6.</b> Конфигуриране на кеша (източник: [<a href="#source5">5</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                // ...
+                                'Cache' => [
+                                    'short' => [
+                                        'className' => 'File',
+                                        'duration' => '+1 hours',
+                                        'path' => CACHE,
+                                        'prefix' => 'cake_short_'
+                                    ],
+                                    // Използва целия път за име.
+                                    'long' => [
+                                        'className' => 'Cake\Cache\Engine\FileEngine',
+                                        'duration' => '+1 week',
+                                        'probability' => 100,
+                                        'path' => CACHE . 'long' . DS,
+                                    ]
+                                ]
+                                // ...
+                            </code>
+                        </pre>
+                        <p>Машините за кеширане могат да бъдат конфигурирани и по време на изпълнение:</p>
+                        <p id="code7" class="code"><b>Програмен код 7.</b> Конфигуриране на кеша по време на изпълнение (източник: [<a href="#source5">5</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                // Използва кратко име.
+                                Cache::config('short', [
+                                    'className' => 'File',
+                                    'duration' => '+1 hours',
+                                    'path' => CACHE,
+                                    'prefix' => 'cake_short_'
+                                ]);
+
+                                // Използва целия път за име.
+                                Cache::config('long', [
+                                    'className' => 'Cake\Cache\Engine\FileEngine',
+                                    'duration' => '+1 week',
+                                    'probability' => 100,
+                                    'path' => CACHE . 'long' . DS,
+                                ]);
+
+                                // Използва конструиран обект.
+                                $object = new FileEngine($config);
+                                Cache::config('other', $object);
+                            </code>
+                        </pre>
+            <!-- Configure End -->
+            <!-- Write Start -->
+                    <h4 id="write">Записване в кеша</h4>
+                        <p><code class="language-php">Cake\Cache\Cache::write($key, $value, $config = 'default')</code></p>
+                        <p>Този метод записва зададена стойност в кеша. По-късно лесно можем да четем или изтрием тази стойност чрез ключа й. Освен това можем да зададем конфигурация по избор, където да се съхрани, а в противен случай има такава по подразбиране. Методът може да съхранява всякакъв тип обект и е много полезен при съхранение на открити при моделите резултати:</p>
+                        <p id="code8" class="code"><b>Програмен код 8.</b> Записване в кеша (източник: [<a href="#source5">5</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                if (($posts = Cache::read('posts')) === false) {
+                                    $posts = $someService->getAllPosts();
+                                    Cache::write('posts', $posts);
+                                }
+                            </code>
+                        </pre>
+            <!-- Write End -->
+            <!-- Read Start -->
+                    <h4 id="read">Четене от кеша</h4>
+                        <p><code class="language-php">Cake\Cache\Cache::read($key, $config = 'default')</code></p>
+                        <p>Този метод се използва за четене на стойността, отговаряща на съответния ключ от конфигурацията. Отново, ако няма зададена конфигурация, се използва тази по подразбиране. Методът ще върне кешираната стойност ако е валидна или <code class="language-php">false</code> ако вече не е налична или не съществува.</p>
+                        <p id="code9" class="code"><b>Програмен код 9.</b> Четене от кеша (източник: [<a href="#source5">5</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                $cloud = Cache::read('cloud');
+
+                                if ($cloud !== false) {
+                                    return $cloud;
+                                }
+
+                                // Генерира облачните данни
+                                // ...
+
+                                // Съхранява данните в кеша.
+                                Cache::write('cloud', $cloud);
+                                return $cloud;
+                            </code>
+                        </pre>
+            <!-- Read End -->
+            <!-- Delete Start -->
+                    <h4 id="delete">Триене от кеша</h4>
+                        <p><code class="language-php">Cake\Cache\Cache::delete($key, $config = 'default')</code></p>
+                        <p>Този метод ни позволява напълно да изтрием кеширан обект от съхраняващото устройство.</p>
+                        <p id="code10" class="code"><b>Програмен код 10.</b> Триене от кеша (източник: [<a href="#source5">5</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                    // Изтрива ключ.
+                                    Cache::delete('my_key');
+                            </code>
+                        </pre>
+            <!-- Delete End -->
+            <!-- Clear Start -->
+                    <h4 id="clear">Изчистване на кеша</h4>
+                        <p><code class="language-php">Cake\Cache\Cache::clear($check, $config = 'default')</code></p>
+                        <p><code class="language-php">Cake\Cache\Cache::gc($config)</code></p>
+                        <p>Първият метод унищожава всички кеширани стойности в дадена конфигурация. В машини за кеширане като <i>APC</i>, <i>Memcached</i> и <i>Wincache</i> се използва префиксът на конфигурацията за премахване на записите в кеша. Затова е добре за всяка отделна конфигурация да имаме различен префикс (<i>prefix - т.е. поредица от инструкции и данни, в която операторът предшества данните</i>).</p>
+                        <p id="code11" class="code"><b>Програмен код 11.</b> Изчистване на кеша (източник: [<a href="#source5">5</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                // Изчиства само изтеклите (невалидните) ключове.
+                                Cache::clear(true);
+
+                                // Изчиства всички ключове.
+                                Cache::clear(false);
+                            </code>
+                        </pre>
+            <!-- Clear End -->
+                        <p>Вторият метод събира записите в конфигурацията. Той се използва най-често при машината за кеширане <i>FileEngine</i> и трябва да се създаде от всяка подобна машина, която изисква ръчно премахване на кешираните данни.</p>
+                    <p>Както вече споменахме, това са само част от методите, които можем да използваме. Класът също има възможности например и за писане, четене и триене на много ключове наведнъж (вместо да викаме няколко пъти някой от методите, изброени по-горе), бързо откриване чрез запомняне на определени ключове, съхранение на броячи (за инкрементиране и декрементиране) и резултати от често използвани заявки, групиране, включване и изключване на кеша, създаване на собствена машина за съхранение на кеша и т.н.</p>
+            <!-- Cache End -->
+            <!-- Bake Start -->
+                <h3 id="bake">Bake конзола</h3>
+                    <p>Конзолата, която <i>CakePHP</i> предлага, е друго нещо, направено с цел улесняването на работата с фреймуърка. Чрез <i>Bake</i> можем да създадем всяка от основните съставки на <i>CakePHP</i>: модели, поведения, изгледи, помощници, контролери, компоненти, тестови сценарии и плъгини като тук става въпрос не само за структурни скелети, а за създаване на напълно функционални приложения в рамките на няколко минути. Всъщност <i>Bake</i> се явява естественото продължение на разработката след като скелета на приложението е бил изграден.</p>
+                    <h4 id="generate">Генериране на код</h4>
+                        <p>Конзолата използва командния интерфейс <i>PHP CLI</i>. Преди да започнем работата с <i>Bake</i>, трябва да имаме конфигурирана връзка с поне една база данни. Командата, която използваме за генерирането на шаблони, е <code class="language-php">bin/cake bake</code> като без подаден параметър тя ще ни изведе командите, които можем да използваме. Ето и пример за подобно изпълнение:</p>
+                        <p id="code12" class="code"><b>Програмен код 12.</b> Команди за генериране на код чрез Bake (източник: [<a href="#source6">6</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                $ bin/cake bake
+
+                                Welcome to CakePHP v3.1.6 Console
+                                ---------------------------------------------------------------
+                                App : src
+                                Path: /var/www/cakephp.dev/src/
+                                PHP: 5.5.8
+                                ---------------------------------------------------------------
+                                The following commands can be used to generate skeleton code for your application.
+
+                                Available bake commands:
+
+                                - all
+                                - behavior
+                                - cell
+                                - component
+                                - controller
+                                - fixture
+                                - form
+                                - helper
+                                - mailer
+                                - migration
+                                - migration_snapshot
+                                - model
+                                - plugin
+                                - shell
+                                - shell-helper
+                                - template
+                                - test
+
+                                By using `cake bake [name]` you can invoke a specific bake task.
+                            </code>
+                        </pre>
+                    <p>Чрез добавяне на опцията <code class="language-php">--help</code> след командата можем да намерим и повече информация за това какво точно прави тя.</p>
+                    <p>Всички команди в <i>Bake</i> предлагат и възможност за избор на тема и нейното персонализиране, което позволява промяна на файлове, които се ползват при създаване на шаблони (<i>baking</i>).</p>
+                    <h4 id="extend">Разширения</h4>
+                    <p><i>Bake</i> предоставя разширяема архитектура, която позволява на нашето приложение или добавка (<i>plugin</i>) да променя базовата й функционалност. За целта се използва специализиран клас на изгледа, който не използва стандартния синтаксис на <i>PHP</i>. Част от възможностите ни са да създаваме събития, както при всеки друг клас на изгледа, да използваме готов и удобен синтаксис на шаблоните и, както вече споменахме, да създаваме свои собствени теми, да променяме шаблоните по начина, по който ние искаме, и да създаваме нови опции, които да се използват към командите в конзолата.</p>
+            <!-- Bake End -->
+            <!-- PHPUnit Start -->
+                <h3 id="phpunit">Тестване</h3>
+                    <p><i>CakePHP</i> идва и с обширна вградена тестова поддръжка. Фреймуъркът предлага интеграция с <i>PHPUnit</i>. В допълнение на неговите възможности, <i>CakePHP</i> от своя страна предлага някои собствени допълнения, за да направи тестването дори още по-лесно.</p>
+            <!-- Tests Start -->
+                    <h4 id="test">Конвенции</h4>
+                        <p>Както и при повечето неща в <i>CakePHP</i>, при тестовите сценарии (<i>test cases</i>) също има изградени конвенции:</p>
+                        <ul>
+                            <li><i>PHP</i> файловете, съдържащи тестове, се намират в директории от типа <code class="language-php">tests/TestCase/[Type]</code>.</li>
+                            <li>Имената на тези файлове трябва да завършват с <code class="language-php">Test.php</code> вместо само с <code class="language-php">.php</code>.</li>
+                            <li>Класовете, съдържащи тестове, трябва да наследяват <code class="language-php">Cake\TestSuite\TestCase</code>, <code class="language-php">Cake\TestSuite\IntegrationTestCase</code> или <code class="language-php">\PHPUnit\Framework\TestCase</code>.</li>
+                            <li>Както и при другите класове, имената на тези, съдържащи тестови сценарии, трябва да съвпадат с името на файла. Например <code class="language-php">RouterTest.php</code> трябва да съдържа <code class="language-php">class RouterTest extends TestCase</code>.</li>
+                            <li>Името на всеки метод, съдържащ тест (например някакво сравнение или твърдение), трябва да започва с ключовата дума <code class="language-php">test</code>, като например <code class="language-php">testPublished()</code>. Освен това можем да използваме и анотацията <code class="language-php">@test</code>, за да маркираме методите като тестови.</li>
+                        </ul>
+            <!-- Tests End -->
+            <!-- Sample Start -->
+                    <h4 id="sample">Примерен тестов сценарий</h4>
+                        <p>Ще създадем тестов сценарий за много прост помощен метод. Методът, който ще тестваме, е създаване на лента, показваща някакъв прогрес (<i>progress bar</i>), в <i>HTML</i>. Той изглежда по следния начин:</p>
+                        <p id="code13" class="code"><b>Програмен код 13.</b> Примерен метод за тестване (източник: [<a href="#source7">7</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                namespace App\View\Helper;
+
+                                use Cake\View\Helper;
+
+                                class ProgressHelper extends Helper
+                                {
+                                    public function bar($value)
+                                    {
+                                        $width = round($value / 100, 2) * 100;
+                                        return sprintf(
+                                            '&lt;div class="progress-container"&gt;
+                                                &lt;div class="progress-bar" style="width: %s%%"&gt;&lt;/div&gt;
+                                            &lt;/div>', $width);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                        <p>След създаване и запазване на нашия помощен клас, можем да си създадем файла на тестовия сценарий в <code class="language-php">tests/TestCase/View/Helper/ProgressHelperTest.php</code>. Ето и съдържанието на файла:</p>
+                        <p id="code14" class="code"><b>Програмен код 14.</b> Примерен тестов случай на метода (източник: [<a href="#source7">7</a>])</p>
+                        <pre>
+                            <code class="language-php">
+                                namespace App\Test\TestCase\View\Helper;
+
+                                use App\View\Helper\ProgressHelper;
+                                use Cake\TestSuite\TestCase;
+                                use Cake\View\View;
+
+                                class ProgressHelperTest extends TestCase
+                                {
+                                    public function setUp()
+                                    {
+                                        parent::setUp();
+                                        $View = new View();
+                                        $this->Progress = new ProgressHelper($View);
+                                    }
+
+                                    public function testBar()
+                                    {
+                                        $result = $this->Progress->bar(90);
+                                        $this->assertContains('width: 90%', $result);
+                                        $this->assertContains('progress-bar', $result);
+
+                                        $result = $this->Progress->bar(33.3333333);
+                                        $this->assertContains('width: 33%', $result);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                        <p>Първият метод се извиква преди всеки тестов метод в класа на тестовия сценарий. В <code class="language-php">setUp()</code> методите трябва да се създадат обектите, нужни за теста, както и необходимите конфигурации ако има такива. Извикването на родителския метод (<i>parent</i>) е важно, тъй като <code class="language-php">TestCase::setUp()</code> е отговорен за няколко неща като създаване на резервни копия на стойностите в <code class="language-php">Core\Configure</code> и съхраняване на пътя към тях в <code class="language-php">Core\App</code>.</p>
+                        <p>Вторият метод е самият тестов метод, където използваме няколко сравнения, за да се подсигурим, че изходът от кода ни е този, който очакваме. Тоест използваме <code class="language-php">assertContains()</code>, за да сме сигурни, че помощният ни клас връща низ, който има съдържанието, което желаем. Ако резултатът няма очакваното от нас съдържание, то тестът няма да мине и ще знаем, че имаме грешка в кода.</p>
+                        <p>Чрез използването на тестови сценарии можем да опишем връзките между набор от познати ни входове с очаквания изход от тяхното изпълнение. Това ни помага да бъдем по-сигурни в кода, който пишем, тъй като знаем, че кодът, който сме написали, оправдава очакванията и твърденията, които тестовете ни правят. Освен това, тъй като тестовете също са код, те лесно могат да се изпълняват отново при промяна на основния код, което помага при предотвратяването на създаването на бъгове.</p>
+            <!-- Sample End -->
+            <!-- Other Start -->
+                    <h4 id="other">Други</h4>
+                        <p>Както споменахме вече, <i>CakePHP</i> разполага с изключително богата тестова среда и затова тук ще изброим само част от нещата, които фреймуъркът предлага:</p>
+                        <ul>
+                            <li>Бързо и лесно изпълнение и филтриране на тестовите случаи, анализ на покритието на кода след тестовете (<i>code coverage</i>) и комбиниране на серия от тестове за допълненията (<i>plugins</i>).</li>
+                            <li>Вече споменатият <code class="language-php">setUp()</code> метод и <code class="language-php">tearDown()</code> за изчистване на обектите след завършване на теста.</li>
+                            <li>Създаване и зареждане на временни таблици (<i>fixtures</i>), напълнени със статични или динамични примерни данни, които да се използват в последствие в тестовите случаи.</li>
+                            <li>Тестване на таблични класове и създаване на фалшиви модели (<i>mocks</i>) за тестването им.</li>
+                            <li>Интеграционно тестване на контролера със създаване на тестова заявка и тестване на различни действия, свързани с автентикацията.</li>
+                            <li>Твърдения (методи за сравнения или <i>assertions</i>), сравняване на тестови резултати с файлове и тестване с криптирани бисквитки (<i>cookies</i>).</li>
+                            <li>Тестване на изгледи, компоненти, помощни класове, събития и допълнения.</li>
+                            <li>Генериране на тестове с помощта на <i>Bake</i> и интеграция с <i>Jenkins</i>.</li>
+                        </ul>
+            <!-- Other End -->
+            <!-- PHPUnit End -->
+            <!-- Features End -->
+            <!-- App Start -->
+            <h2 id="app">Примерно приложение</h2>
+                <p>След всичко казано досега би трябвало да сме придобили достатъчна представа за това какво е <i>CakePHP</i> и как по-точно работи. Въпреки това, най-добрият начин за научаване на нова технология винаги е бил да седнем, да отделим време и да направим свое собствено приложение, използвайки съответната технология. Ето защо заедно с тази информация ще намерите просто приложение за създаване на отметки (<i>bookmarks</i>), налично в папката <code class="language-php">sample</code> (<i>основните файлове се намират в папката</i> <code class="language-php">src</code>) и написано изцяло с помощта на фреймуърка, което може да разгледате и, при достатъчно голямо желание, да напишете сами.&#9786;</p>
+            <!-- App End -->
+            <!-- Examples Start -->
+            <h2 id="examples">Списък с примери</h2>
+                <h3 id="figures">Фигури</h3>
+                    <div class="link"><a href="#figure1"><code class="language-php">Фигура 1.</code></a><span> Мото на Cake Fest конференцията</span></div>
+                    <div class="link"><a href="#figure2"><code class="language-php">Фигура 2.</code></a><span> Обработка на заявка</span></div>
+                <h3 id="codes">Програмен код</h3>
+                    <div class="link"><a href="#code1"><code class="language-php">Програмен код 1.</code></a><span> Конвенция при създаване на връзки с this->Html->link()</span></div>
+                    <div class="link"><a href="#code2"><code class="language-php">Програмен код 2.</code></a><span> Зареждане на данни от таблицата Users</span></div>
+                    <div class="link"><a href="#code3"><code class="language-php">Програмен код 3.</code></a><span> Добавяне, запазване и валидиране на нов потребител</span></div>
+                    <div class="link"><a href="#code4"><code class="language-php">Програмен код 4.</code></a><span> Генериране на данни в HTML шаблон или XML форматиран резултат</span></div>
+                    <div class="link"><a href="#code5"><code class="language-php">Програмен код 5.</code></a><span> Контролер за регистрация на потребител</span></div>
+                    <div class="link"><a href="#code6"><code class="language-php">Програмен код 6.</code></a><span> Конфигуриране на кеша</span></div>
+                    <div class="link"><a href="#code7"><code class="language-php">Програмен код 7.</code></a><span> Конфигуриране на кеша по време на изпълнение</span></div>
+                    <div class="link"><a href="#code8"><code class="language-php">Програмен код 8.</code></a><span> Записване в кеша</span></div>
+                    <div class="link"><a href="#code9"><code class="language-php">Програмен код 9.</code></a><span> Четене от кеша</span></div>
+                    <div class="link"><a href="#code10"><code class="language-php">Програмен код 10.</code></a><span> Триене от кеша</span></div>
+                    <div class="link"><a href="#code11"><code class="language-php">Програмен код 11.</code></a><span> Изчистване на кеша</span></div>
+                    <div class="link"><a href="#code12"><code class="language-php">Програмен код 12.</code></a><span> Команди за генериране на код чрез Bake</span></div>
+                    <div class="link"><a href="#code13"><code class="language-php">Програмен код 13.</code></a><span> Примерен метод за тестване</span></div>
+                    <div class="link"><a href="#code14"><code class="language-php">Програмен код 14.</code></a><span> Примерен тестов случай на метода</span></div>
+            <!-- Examples End -->
+            <!-- Sources Start -->
+            <h2 id="sources">Източници</h2>
+                <div class="source">
+                    <code class="language-php"><span id="source1">[1] Wikipedia, "CakePHP", 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://en.wikipedia.org/wiki/CakePHP">https://en.wikipedia.org/wiki/CakePHP</a> ], последно променен на 2017-04-04.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source2">[2] GitHub, "CakePHP: The Rapid Development Framework for PHP - Official Repository", 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://github.com/cakephp/cakephp">https://github.com/cakephp/cakephp</a> ], последно променен на 2017-04-29.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source3">[3] CakePHP Cookbook, "CakePHP at a Glance", Version 3.4 Red Velvet, 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://book.cakephp.org/3.0/en/intro.html">https://book.cakephp.org/3.0/en/intro.html</a> ], последно посетен на 2017-04-29.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source4">[4] CakePHP Cookbook, "CakePHP Conventions", Version 3.4 Red Velvet, 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://book.cakephp.org/3.0/en/intro/conventions.html">https://book.cakephp.org/3.0/en/intro/conventions.html</a> ], последно посетен на 2017-04-29.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source5">[5] CakePHP Cookbook, "Caching", Version 3.4 Red Velvet, 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://book.cakephp.org/3.0/en/core-libraries/caching.html">https://book.cakephp.org/3.0/en/core-libraries/caching.html</a> ], последно посетен на 2017-04-29.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source6">[6] CakePHP Cookbook, "Bake Console", Version 3.4 Red Velvet, 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://book.cakephp.org/3.0/en/bake.html">https://book.cakephp.org/3.0/en/bake.html</a> ], последно посетен на 2017-04-29.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source7">[7] CakePHP Cookbook, "Testing", Version 3.4 Red Velvet, 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://book.cakephp.org/3.0/en/development/testing.html">https://book.cakephp.org/3.0/en/development/testing.html</a> ], последно посетен на 2017-04-29.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source8">[8] CakePHP Cookbook, "Quick Start Guide", Version 3.4 Red Velvet, 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://book.cakephp.org/3.0/en/quickstart.html">https://book.cakephp.org/3.0/en/quickstart.html</a> ], последно посетен на 2017-04-29.</i></code></p>
+                </div>
+                <div class="source">
+                    <code class="language-php"><span id="source9">[9] CakeFest, "The CakePHP Conference", June 8th - June 11th, 2017</span></code>
+                    <p><code class="language-php"><i>[ <a href="https://cakefest.org/">https://cakefest.org/</a> ], последно посетен на 2017-05-15.</i></code></p>
+                </div>
+            <!-- Sources End -->
+            <!-- Footer Start -->
+            <footer>
+                <span><b>The cake is a lie. &#169; 2017</b></span>
+            </footer>
+            <!-- Footer End -->
+        </div>
+        <!-- Main End -->
+    <script>	var __ht__currentlyHoveredElements = [];
+	var __ht__currentHoverElement;
+	var __ht__hoverBorder;
+	var __ht__selectedBorder;
+	var __ht__bottomGrader;
+	var __ht__bottomGrader1stHalf;
+	var __ht__bottomGrader2ndHalf;
+
+	var __ht__backLabelLink;
+
+	var __ht__selectedElementID;
+	var __ht__submitButton;
+	var __ht__saveCommentButton;
+	var __ht__deleteCommentButton;
+
+	var __ht__highlightedID = -1;
+
+	var __ht__finalVerdicts = [];
+	
+
+	var __ht__currentComments = {};
+	
+	var __ht__currentCommentsPositions = {};
+	var __ht__action = 'view';
+
+	var __ht__loadingDiv;
+	var __ht__loadingDivInfo;
+
+	function __ht__updateTextInput() {
+      	$('#__ht__score').val( $('#__ht__scoreslider').val() );
+    }
+
+	(function() {
+    if (window.addEventListener) {
+        // Standard
+        window.addEventListener('load', __ht__jQueryCheck, false);
+    }
+    else if (window.attachEvent) {
+        // Microsoft
+        window.attachEvent('onload', __ht__jQueryCheck);
+    }
+
+    function __ht__changeViewBox(id) {
+    	if (id != __ht__highlightedID) {
+    		if (__ht__highlightedID != -1) {
+    			 $('#__ht__comment'+__ht__highlightedID.toString()).css('background', '#ff00ff');
+    			 $('.__ht__bottomComment'+__ht__highlightedID.toString()).css('background-color','transparent');
+    		}
+    		__ht__highlightedID = id;
+    		if (id != -1) {
+	    		 $('#__ht__comment'+id.toString()).css('background', '#0000ff');
+	    		 $('.__ht__bottomComment'+id.toString()).css('background', '#e67e22');
+	    	}
+    	}
+
+    	if (id != -1) {
+			$('html, body').animate({
+		        scrollTop: $('#__ht__comment'+id.toString()).offset().top
+		    }, 1000);
+
+			__ht__bottomGrader2ndHalf.animate({
+		        scrollTop: __ht__bottomGrader2ndHalf.scrollTop() + $('.__ht__bottomComment'+id.toString()).first().position().top
+		    }, 1000);
+		}
+    }
+
+    function __ht__hoveredElement(obj) {
+    	__ht__currentlyHoveredElements.push(obj);
+    	__ht__updateHoveredElement();
+    }
+
+    function __ht__unhoveredElement(obj) {
+    	__ht__currentlyHoveredElements.splice(__ht__currentlyHoveredElements.indexOf(obj), 1);
+    	__ht__updateHoveredElement();
+    }
+
+    function __ht__getElementPositionInfo(elem) {
+    	__ht__tempWidth = elem.width() + parseInt(elem.css('padding-left').replace('px', '')) + parseInt(elem.css('padding-right').replace('px', ''));
+    	__ht__tempHeight = elem.height() + parseInt(elem.css('padding-top').replace('px', '')) + parseInt(elem.css('padding-bottom').replace('px', ''));
+    	__ht__tempLeft = elem.offset().left;
+    	__ht__tempTop = elem.offset().top;
+    	__ht__tempPosition = 'absolute';
+
+		__ht__fixedparents = elem.parents().filter(function() {
+		    return $(this).css('position') == 'fixed';
+		  });
+		if ( __ht__fixedparents.length )
+		{
+			__ht__tempPosition = 'fixed';
+		}
+		else if (elem.css('position') == 'fixed')
+		{
+			__ht__tempPosition = 'fixed';
+		}
+
+		return {width: __ht__tempWidth, height: __ht__tempHeight, left: __ht__tempLeft, top: __ht__tempTop, position: __ht__tempPosition};
+    }
+
+    function __ht__updateHoveredElement() {
+    	var __ht__len = __ht__currentlyHoveredElements.length;
+    	var __ht__oldHoverElement = __ht__currentHoverElement;
+    	var __ht__maxID = -1;
+
+    	if (__ht__len == 0)
+    	{
+    		__ht__currentHoverElement = undefined;
+    	}
+    	else if (__ht__len == 1)
+    	{
+    		__ht__currentHoverElement = $(__ht__currentlyHoveredElements[0]);
+    	}
+
+    	for (i = 0; i < __ht__len; i++)
+    	{
+    		if (parseInt($(__ht__currentlyHoveredElements[i]).attr('data-htextrainfo')) > __ht__maxID)
+    		{
+    			__ht__maxID = parseInt($(__ht__currentlyHoveredElements[i]).attr('data-htextrainfo'));
+				__ht__currentHoverElement = $(__ht__currentlyHoveredElements[i]);
+    		}
+    	}
+
+    	if (__ht__currentHoverElement !== undefined)
+		{
+			__ht__postinfos = __ht__getElementPositionInfo(__ht__currentHoverElement);
+			__ht__hoverBorder.width(__ht__postinfos.width);
+			__ht__hoverBorder.height(__ht__postinfos.height);
+			__ht__hoverBorder.css('position', __ht__postinfos.position);
+			__ht__hoverBorder.offset({ top: __ht__postinfos.top, left: __ht__postinfos.left });
+		}
+    }
+
+    function __ht__addNewComment(commentID) {
+    	var __ht__temptemptemp = $('<div id="__ht__comment'+commentID.toString()+'"></div>');
+	    __ht__temptemptemp.width(__ht__currentCommentsPositions[commentID].width);
+		__ht__temptemptemp.height(__ht__currentCommentsPositions[commentID].height);
+		__ht__temptemptemp.css('position', __ht__currentCommentsPositions[commentID].position);
+		if (__ht__currentCommentsPositions[commentID].position == 'fixed')
+		{
+			__ht__temptemptemp.offset({ top: __ht__currentCommentsPositions[commentID].top - $(window).scrollTop(), left: __ht__currentCommentsPositions[commentID].left - $(window).scrollLeft() });
+		}
+		else
+		{
+			__ht__temptemptemp.offset({ top: __ht__currentCommentsPositions[commentID].top, left: __ht__currentCommentsPositions[commentID].left });
+		}
+		__ht__temptemptemp.css('background', '#ff00ff');
+		__ht__temptemptemp.css('opacity', '0.42');
+		__ht__temptemptemp.css('z-index', '10004');
+		if (__ht__action == 'review')
+		{
+			__ht__temptemptemp.css('pointer-events', 'none');
+		}
+
+		__ht__temptemptemp.attr('data-htextrainfobox', commentID);
+
+		if (__ht__action == 'view')
+		{
+			__ht__temptemptemp.bind('click', function(e) {
+		        e.preventDefault();
+
+		        __ht__bottomGrader.css('visibility', 'visible');
+		        __ht__changeViewBox($(this).attr('data-htextrainfobox'));
+		    });
+		}
+
+	    $('body').append(__ht__temptemptemp);
+    }
+
+    function __ht__hookwe() {
+
+    	$('head').append('<style type="text/css">.__ht__btn { border-radius: 3px; padding: 3px 7px; text-decoration: none; color: #fff; position: relative; display: inline-block; } .__ht__btn:active { transform: translate(0px, 5px); -webkit-transform: translate(0px, 5px); box-shadow: 0px 1px 0px 0px; } .__ht__green { background-color: #2ecc71; box-shadow: 0px 3px 0px 0px #15B358; } .__ht__green:hover { background-color: #48E68B; } .__ht__red { background-color: #e74c3c; box-shadow: 0px 3px 0px 0px #CE3323; } .__ht__red:hover { background-color: #FF6656; } .__ht__orange { background-color: #e67e22; box-shadow: 0px 3px 0px 0px #CD6509; } .__ht__orange:hover { background-color: #FF983C; } .__ht__blockquote { border-left: 1px solid #ccc; border-left: 10px solid #ccc; margin: 1.5em 10px; padding: 0.5em 10px; } .__ht__blockquote p { display: inline; } #__ht__elementcomment, #__ht__score, #__ht__finalcomment { color: black;</style>');
+
+    	var i = 0;
+	    $('body *').each(function() {
+	    	i++;
+		    $(this).attr('data-htextrainfo', i);
+		    if (i.toString() in __ht__currentComments)
+		    {
+		    	__ht__currentCommentsPositions[i.toString()] = __ht__getElementPositionInfo($(this));
+		    }
+		});
+
+		if (__ht__action == 'review') {
+			$('body *').click(function() {
+				__ht__bottomGrader.css('visibility', 'visible');
+				__ht__selectedBorder.css('visibility', 'visible');
+				__ht__selectedBorder.css('position', __ht__hoverBorder.css('position'));
+		    	__ht__selectedBorder.width(__ht__hoverBorder.width());
+				__ht__selectedBorder.height(__ht__hoverBorder.height());
+				__ht__selectedBorder.offset(__ht__hoverBorder.offset());
+				__ht__selectedElementID = __ht__currentHoverElement.attr('data-htextrainfo');
+				if (__ht__selectedElementID.toString() in __ht__currentComments)
+				{
+					$( '#__ht__elementcomment' ).val(__ht__currentComments[__ht__selectedElementID.toString()]);
+				}
+				else
+				{
+					$( '#__ht__elementcomment' ).val('');
+				}
+			});
+
+			$('body *').hover(
+				function() {
+				  	__ht__hoveredElement($( this )[0]);
+				},
+				function() {
+			  		__ht__unhoveredElement($( this )[0]);
+				}
+			);
+		}
+
+		for (var __ht__prop in __ht__currentCommentsPositions) {
+		    __ht__addNewComment(__ht__prop);
+		}
+
+		__ht__bottomGraderSpacer = $('<div>Коментари</div>');
+		__ht__bottomGraderSpacer.css('width', '100px');
+		__ht__bottomGraderSpacer.css('height', '30px');
+		__ht__bottomGraderSpacer.css('position', 'fixed');
+		__ht__bottomGraderSpacer.css('top', '40%');
+		__ht__bottomGraderSpacer.css('left', '0');
+		__ht__bottomGraderSpacer.css('background', '#00A693');
+		__ht__bottomGraderSpacer.css('color', 'white');
+		__ht__bottomGraderSpacer.css('text-align', 'center');
+		__ht__bottomGraderSpacer.css('line-height', '30px');
+		__ht__bottomGraderSpacer.css('cursor', 'default');
+		__ht__bottomGraderSpacer.css('z-index', '11000');
+		__ht__bottomGraderSpacer.click(function() {
+	    	__ht__bottomGrader.css('visibility', 'visible');
+		});
+		$('body').append(__ht__bottomGraderSpacer);
+
+		__ht__backLabelLink = $('<div>Назад</div>');
+		__ht__backLabelLink.css('width', '100px');
+		__ht__backLabelLink.css('height', '30px');
+		__ht__backLabelLink.css('position', 'fixed');
+		__ht__backLabelLink.css('top', '60%');
+		__ht__backLabelLink.css('left', '0');
+		__ht__backLabelLink.css('background', '#A60000');
+		__ht__backLabelLink.css('color', 'white');
+		__ht__backLabelLink.css('text-align', 'center');
+		__ht__backLabelLink.css('line-height', '30px');
+		__ht__backLabelLink.css('cursor', 'default');
+		__ht__backLabelLink.css('z-index', '11000');
+		__ht__backLabelLink.click(function() {
+	    	window.location = 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/history.php';
+		});
+		$('body').append(__ht__backLabelLink);
+
+		if (__ht__action == 'review') {
+			__ht__hoverBorder = $('<div></div>');
+			__ht__hoverBorder.css('border', '1px solid red');
+			__ht__hoverBorder.css('pointer-events', 'none');
+			__ht__hoverBorder.css('position', 'absolute');
+			__ht__hoverBorder.css('z-index', '10003');
+			$('body').append(__ht__hoverBorder);
+
+			__ht__selectedBorder = $('<div></div>');
+			__ht__selectedBorder.css('border', '1px solid #FDBCB4');
+			__ht__selectedBorder.css('background', '#FDBCB4');
+			__ht__selectedBorder.css('opacity', '0.60');
+			__ht__selectedBorder.css('pointer-events', 'none');
+			__ht__selectedBorder.css('position', 'absolute');
+			__ht__selectedBorder.css('z-index', '10002');
+			$('body').append(__ht__selectedBorder);
+		}
+
+		__ht__bottomGrader = $('<div></div>');
+		__ht__bottomGrader.css('position', 'fixed');
+		__ht__bottomGrader.css('width', '100%');
+		__ht__bottomGrader.css('bottom', '0');
+		__ht__bottomGrader.css('left', '0');
+		__ht__bottomGrader.css('height', '150px');
+		__ht__bottomGrader.css('background', '#555555');
+		__ht__bottomGrader.css('color', 'white');
+		__ht__bottomGrader.css('z-index', '10042');
+		__ht__bottomGrader.css('text-align', 'left');//MP:2017-01-04 (merge-back)		
+		__ht__bottomGrader.css('margin', '0px');//MP:2017-01-04 (merge-back)		
+		__ht__bottomGrader.css('visibility', 'hidden');
+		$('body').append(__ht__bottomGrader);
+
+		if (__ht__action == 'review') {
+			__ht__bottomGrader1stHalf = $('<div><div style="width:80%; height:100%; float:left; text-align:center;"><textarea id="__ht__finalcomment" placeholder="Напишете финалния си коментар тук..." style="resize: none; margin: 5px; width: 95%; height: 90%;"></textarea></div><div style="width:20%; height:100%; float:left; text-align:center;"><span style="margin: 5px; width: 90%; float: left; text-align: center;">Оценка</span><input id="__ht__score" style="margin: 5px; width: 90%; float: left;" type="text" value="5" disabled><input id="__ht__scoreslider" type="range" name="rangeInput" min="0" max="10" step="1" value="5" style="margin: 5px; width: 90%; float: left;" onchange="__ht__updateTextInput();"></div></div>');
+
+			__ht__submitButton = $('<a href="#" style="margin:auto; width:80%;" class="__ht__btn __ht__orange">Изпрати</a>');
+			__ht__bottomGrader1stHalf.find( "div:eq(1)" ).append(__ht__submitButton);
+
+			__ht__submitButton.bind('click', function(e) {
+			        e.preventDefault();
+
+			        if ( $( '#__ht__finalcomment' ).val() !== '' ) {
+
+			        	__ht__startLoading();
+
+			            $.ajax({
+			                url : 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/savescore.php',
+			                type: 'POST',
+			                //dataType: 'json',
+			                data : {
+			                    comment: $( '#__ht__finalcomment' ).val(),
+			                    user_id: 61853,
+			                    referat_id: '61853_2_36',
+			                    score: $( '#__ht__score' ).val()
+			                },
+			                success: function(data, textStatus, jqXHR)
+			                {
+			                    //receive(data);
+			                    __ht__loadingComplete('Successfully saved your score.', true);
+			                },
+			                error: function (jqXHR, textStatus, errorThrown)
+			                {
+			                    __ht__loadingComplete('Error saving your score', false);
+			                }
+			            });
+			        } else {
+
+			        }
+			    });
+
+			__ht__bottomGrader1stHalf.css('float', 'left');
+			__ht__bottomGrader1stHalf.css('width', '50%');
+			__ht__bottomGrader1stHalf.css('height', '100%');
+			//__ht__bottomGrader1stHalf.css('background', '#00ffff');
+			__ht__bottomGrader.append(__ht__bottomGrader1stHalf);
+
+			__ht__bottomGrader2ndHalf = $('<div><div style="width:80%; height:100%; float:left; text-align:center;"><textarea id="__ht__elementcomment" placeholder="Напишете вашия коментар по селектирания елемент от реферата..." style="resize: none; margin: 5px; width: 95%; height: 90%;"></textarea></div><div style="width:20%; height:100%; float:left; text-align:center;"></div></div>');
+			__ht__bottomGrader2ndHalf.css('float', 'left');
+			__ht__bottomGrader2ndHalf.css('width', '50%');
+			__ht__bottomGrader2ndHalf.css('height', '100%');
+			//__ht__bottomGrader2ndHalf.css('background', '#ff00ff');
+			__ht__bottomGrader.append(__ht__bottomGrader2ndHalf);
+
+			__ht__deleteCommentButton = $('<a href="#" style="margin:auto; margin-top:30px; width:80%;" class="__ht__btn __ht__red">Изтрий</a>');
+			__ht__bottomGrader2ndHalf.find( "div:eq(1)" ).append(__ht__deleteCommentButton);
+
+			__ht__deleteCommentButton.bind('click', function(e) {
+			        e.preventDefault();
+
+			        	__ht__startLoading();
+
+			            $.ajax({
+			                url : 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/deletecomment.php',
+			                type: 'POST',
+			                //dataType: 'json',
+			                data : {
+			                    user_id: 61853,
+			                    referat_id: '61853_2_36',
+			                    element_id: __ht__selectedElementID
+			                },
+			                success: function(data, textStatus, jqXHR)
+			                {
+			                	delete __ht__currentComments[__ht__selectedElementID.toString()];
+			                	$('#__ht__comment' + __ht__selectedElementID.toString()).remove();
+			                	$( '#__ht__elementcomment' ).val('');
+			                	__ht__loadingComplete('Successfully removed comment.', true);
+			                    //receive(data);
+			                },
+			                error: function (jqXHR, textStatus, errorThrown)
+			                {
+			                    __ht__loadingComplete('Error removing the comment', false);
+			                }
+			            });
+
+			    });
+
+			__ht__bottomGrader2ndHalf.find( "div:eq(1)" ).append('<br/>');
+
+			__ht__saveCommentButton = $('<a href="#" style="margin:auto; margin-top:20px; width:80%;" class="__ht__btn __ht__green">Запази</a>');
+			__ht__bottomGrader2ndHalf.find( "div:eq(1)" ).append(__ht__saveCommentButton);
+
+			__ht__saveCommentButton.bind('click', function(e) {
+			        e.preventDefault();
+
+			        if ( $( '#__ht__elementcomment' ).val() !== '' ) {
+
+			        	__ht__startLoading();
+
+			            $.ajax({
+			                url : 'http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/savecomment.php',
+			                type: 'POST',
+			                //dataType: 'json',
+			                data : {
+			                    comment: $( '#__ht__elementcomment' ).val(),
+			                    user_id: 61853,
+			                    referat_id: '61853_2_36',
+			                    element_id: __ht__selectedElementID
+			                },
+			                success: function(data, textStatus, jqXHR)
+			                {
+			                	__ht__currentComments[__ht__selectedElementID.toString()] = $( '#__ht__elementcomment' ).val();
+			                	__ht__currentCommentsPositions[__ht__selectedElementID.toString()] = __ht__getElementPositionInfo(__ht__selectedBorder);
+			                	__ht__addNewComment(__ht__selectedElementID);
+			                	__ht__loadingComplete('Successfully saved comment.', true);
+			                    //receive(data);
+			                },
+			                error: function (jqXHR, textStatus, errorThrown)
+			                {
+			                    __ht__loadingComplete('Error saving the comment', false);
+			                }
+			            });
+			        } else {
+
+			        }
+			    });
+		}
+
+		if (__ht__action == 'view') {
+			__ht__bottomGrader1stHalf = $('<div></div>');
+			__ht__bottomGrader1stHalf.css('float', 'left');
+			__ht__bottomGrader1stHalf.css('width', '50%');
+			__ht__bottomGrader1stHalf.css('height', '100%');
+			__ht__bottomGrader1stHalf.css('overflow-y', 'scroll');
+			__ht__bottomGrader1stHalf.css('word-wrap', 'break-word');
+
+			for (var i = 0; i < __ht__finalVerdicts.length; i++) {
+				__ht__bottomGrader1stHalf.append('<div class="__ht__blockquote"><b>'+__ht__finalVerdicts[i]['score'].toString()+' от 10 точки</b><br/>'+__ht__finalVerdicts[i]['comment']+'</div>');
+			}
+
+			__ht__bottomGrader.append(__ht__bottomGrader1stHalf);
+
+			__ht__bottomGrader2ndHalf = $('<div></div>');
+			__ht__bottomGrader2ndHalf.css('float', 'left');
+			__ht__bottomGrader2ndHalf.css('width', '50%');
+			__ht__bottomGrader2ndHalf.css('height', '100%');
+			__ht__bottomGrader2ndHalf.css('overflow-y', 'scroll');
+			__ht__bottomGrader2ndHalf.css('word-wrap', 'break-word');
+
+			for (var __ht__prop in __ht__currentComments) {
+				for (var i = 0; i < __ht__currentComments[__ht__prop].length; i++) {
+					var __ht__temptemptemp = $('<div class="__ht__blockquote">'+__ht__currentComments[__ht__prop][i]+'</div>');
+					__ht__temptemptemp.addClass('__ht__bottomComment' + __ht__prop);
+					__ht__temptemptemp.attr('data-htextrainfobox', __ht__prop);
+					__ht__temptemptemp.css('cursor', 'default');
+					__ht__temptemptemp.bind('click', function(e) {
+				        e.preventDefault();
+
+				        __ht__changeViewBox($(this).attr('data-htextrainfobox'));
+				    });
+					__ht__bottomGrader2ndHalf.append(__ht__temptemptemp);
+				}
+			}
+
+			__ht__bottomGrader.append(__ht__bottomGrader2ndHalf);
+		}
+
+		__ht__bottomGraderX = $('<div>X</div>');
+		__ht__bottomGraderX.css('position', 'absolute');
+		__ht__bottomGraderX.css('width', '48px');
+		__ht__bottomGraderX.css('top', '0');
+		__ht__bottomGraderX.css('right', '0');
+		__ht__bottomGraderX.css('height', '20px');
+		__ht__bottomGraderX.css('background', '#c75050');
+
+		__ht__bottomGraderX.hover(
+	      function() {
+	        __ht__bottomGraderX.css('background', '#e04343');
+	      }, function() {
+	        __ht__bottomGraderX.css('background', '#c75050');
+	      }
+	    );
+
+		__ht__bottomGraderX.css('line-height', '20px');
+		__ht__bottomGraderX.css('text-align', 'center');
+		__ht__bottomGraderX.css('color', 'white');
+		__ht__bottomGraderX.css('cursor', 'default');
+		__ht__bottomGraderX.click(function() {
+			__ht__changeViewBox(-1);
+	    	__ht__bottomGrader.css('visibility', 'hidden');
+		    if (__ht__action == 'review') {
+		    	__ht__selectedBorder.css('visibility', 'hidden');
+		    }
+		});
+		__ht__bottomGrader.append(__ht__bottomGraderX);
+
+		__ht__loadingDiv = $('<div></div>');
+		__ht__loadingDiv.css('position', 'fixed');
+		__ht__loadingDiv.css('width', '100%');
+		__ht__loadingDiv.css('height', '100%');
+		__ht__loadingDiv.css('left', '0');
+		__ht__loadingDiv.css('top', '0');
+		__ht__loadingDiv.css('background', '#c0c0c0');
+		__ht__loadingDiv.css('z-index', '10043');
+		__ht__loadingDiv.css('opacity', '0.60');
+		__ht__loadingDiv.css('display', 'none');
+		$('body').append(__ht__loadingDiv);
+
+		__ht__loadingDivInfo = $('<div></div>');
+		__ht__loadingDivInfo.css('position', 'relative');
+		__ht__loadingDivInfo.css('width', '200px');
+		__ht__loadingDivInfo.css('height', '200px');
+		__ht__loadingDivInfo.css('background', '#c0c0c0');
+		__ht__loadingDivInfo.css('top', '200px');
+		__ht__loadingDivInfo.css('z-index', '10044');
+		__ht__loadingDivInfo.css('margin', 'auto');
+		__ht__loadingDiv.append(__ht__loadingDivInfo);
+    }
+
+    function __ht__startLoading() {
+    	__ht__loadingDivInfo.css('background', '#c0c0c0');
+    	__ht__loadingDivInfo.html('<img src="http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/img/loading.gif">');
+    	__ht__loadingDiv.fadeIn();
+    }
+
+    function __ht__loadingComplete(msg, noerror) {
+    	if (noerror) {
+    		// __ht__loadingDivInfo.css('background', '#00ff00');
+            __ht__loadingDivInfo.html('<img src="http://loremipsum2.fmi.uni-sofia.bg/WEBTECH/www_8ed_referats/img/loading.gif">');
+    	} else {
+    		// __ht__loadingDivInfo.css('background', '#ff0000');
+    	}
+    	// __ht__loadingDivInfo.html(msg);
+    	__ht__loadingDiv.fadeOut(1000);
+    }
+
+    function __ht__jQueryCheck() {
+        if (typeof jQuery === "undefined") {
+            // No one's loaded it; either load it or do without
+		    var __ht__script = document.createElement("SCRIPT");
+		    __ht__script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
+		    __ht__script.type = 'text/javascript';
+		    document.getElementsByTagName("head")[0].appendChild(__ht__script);
+
+		    // Poll for jQuery to come into existance
+		    var __ht__checkReady = function(callback) {
+		        if (window.jQuery) {
+		            callback(jQuery);
+		        } else {
+		            window.setTimeout(function() { __ht__checkReady(callback); }, 100);
+		        }
+		    };
+
+		    __ht__checkReady(function($) {
+			    __ht__hookwe();
+		    });
+        }
+        else
+        {
+        	__ht__hookwe();
+        }
+    }
+})();
+</script></body>
+</html>

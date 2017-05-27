@@ -21,13 +21,14 @@
             <div id="paper-content">
                 <p class="center">
                     <?php
+                        error_reporting(0);
 						$input=$_POST["referat"];
-						$uniqueName=explode("/", $input);
+						$uniqueName=explode("/", $input)[6];
 						
 						$servername = "localhost";
 						$db_username = "root";
 						$db_password = "";
-						$dbname = "star_wars";
+						$dbname = "puffin";
 						
 						try {
 							$conn = new PDO("mysql:host=$servername;dbname=$dbname", $db_username, $db_password);
@@ -35,13 +36,22 @@
 						} catch (PDOException $e){
 							exit($e->getMessage());
 						}
+                    
+                        $uniqueNameParts=explode("_", $uniqueName);
+                        $result = $conn->prepare("SELECT user_id, version, theme FROM projects where (user_id = :userId and version = :version and theme = :theme)");
+                        $result->bindParam(':userId', $uniqueNameParts[0]);
+                        $result->bindParam(':version', $uniqueNameParts[1]);
+                        $result->bindParam(':theme', $uniqueNameParts[2]);
+                        $result->execute();
 						
-						$result = $conn->prepare("SELECT relative_path FROM Projects WHERE unique_name = :uniqueName");
+						/* $result = $conn->prepare("SELECT relative_path FROM Projects WHERE unique_name = :uniqueName");
 						$result->bindParam(':uniqueName', $uniqueName[6]);
-						$result->execute();
+						$result->execute(); */
+                    
+                        $path = $result->fetchAll()[0];
 						
-                        $fileLocation="../papers/".$result->fetchAll()[0]["relative_path"];
-                        
+                        $fileLocation="../papers/".$path["user_id"]."/".$path["version"]."_".$path["theme"]."/referat.html";
+                    
                         if (!file_exists($fileLocation)) {
                             $fileLocation='../papers/default/referat.html';
                             echo "<audio style='display: none' controls autoplay loop='loop'>
