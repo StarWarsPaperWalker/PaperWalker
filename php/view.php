@@ -23,7 +23,6 @@
                     <?php
 						$input=$_POST["referat"];
 						$uniqueName=explode("/", $input);
-						echo $uniqueName[6];
 						
 						$servername = "localhost";
 						$db_username = "root";
@@ -37,13 +36,11 @@
 							exit($e->getMessage());
 						}
 						
-						$result = $conn->prepare("SELECT relativepath FROM Projects WHERE unique_name = :uniqueName");
+						$result = $conn->prepare("SELECT relative_path FROM Projects WHERE unique_name = :uniqueName");
 						$result->bindParam(':uniqueName', $uniqueName[6]);
 						$result->execute();
 						
-						print_r($result->fetchAll());
-						
-                        $fileLocation='../papers/61853/referat.html';
+                        $fileLocation="../papers/".$result->fetchAll()[0]["relative_path"];
                         
                         if (!file_exists($fileLocation)) {
                             $fileLocation='../papers/default/referat.html';

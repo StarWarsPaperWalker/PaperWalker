@@ -14,7 +14,7 @@ body, html {
 	overflow: hidden;
 }
 
-input, a {
+input, a.back, a.logout {
     display: block;
     width: 150%;
     border-radius: 10px;
@@ -29,14 +29,14 @@ input, a {
     text-decoration: none;
 }
 
-.back {
+a.back {
     float: left;
     width: 10%;
     margin-top: 2%;
     margin-left: 2%;
 }
 
-.logout {
+a.logout {
     float: right;
     width: 10%;
     margin-top: 1.5%;
