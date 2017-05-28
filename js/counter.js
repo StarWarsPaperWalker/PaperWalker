@@ -19,7 +19,6 @@
         var lines = Math.ceil(height / line_height);
         var duration = Math.ceil(lines);
         event.style.animation = "scroll " + duration + "s linear 3s infinite";
-        alert("Lines:" + lines);
         return lines;
     }
     return countLines(document.getElementById("paper-content"));
